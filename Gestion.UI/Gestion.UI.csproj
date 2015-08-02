@@ -353,6 +353,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Search-icon.png" />
     <None Include="Resources\bg_1280.jpg" />
     <None Include="Resources\bg_03.png" />
     <None Include="Resources\bg_02.png" />
