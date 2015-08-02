@@ -69,6 +69,7 @@
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ordenDeCompraABMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +82,8 @@
             this.clientesToolStripMenuItem,
             this.fActuraciónToolStripMenuItem,
             this.inventarioToolStripMenuItem,
-            this.comprasToolStripMenuItem});
+            this.comprasToolStripMenuItem,
+            this.configuraciónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(684, 24);
@@ -211,6 +213,7 @@
             this.facturaToolStripMenuItem1.Name = "facturaToolStripMenuItem1";
             this.facturaToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.facturaToolStripMenuItem1.Text = "&Factura";
+            this.facturaToolStripMenuItem1.Click += new System.EventHandler(this.facturaToolStripMenuItem1_Click);
             // 
             // notaDeCréditoToolStripMenuItem
             // 
@@ -376,6 +379,12 @@
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // configuraciónToolStripMenuItem
+            // 
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "&Configuración";
+            // 
             // frmPrincipal2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,5 +448,6 @@
         private System.Windows.Forms.ToolStripMenuItem provinciasABMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ciudadesABMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem localidadesABMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
     }
 }

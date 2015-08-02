@@ -99,8 +99,15 @@ namespace Gestion.UI
             }
             if (ancho == 1680)
             {
-                this.BackgroundImage = new Bitmap(Properties.Resources.bg_02);
+                this.BackgroundImage = new Bitmap(Properties.Resources.bg_1280);
             }
+        }
+
+        private void facturaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmFactura frm = new frmFactura();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }
