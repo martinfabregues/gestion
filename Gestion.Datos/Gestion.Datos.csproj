@@ -52,6 +52,7 @@
     <Compile Include="Repositories\AlicuotaRepository.cs" />
     <Compile Include="Repositories\CategoriaRepository.cs" />
     <Compile Include="Repositories\CondicionIvaRepository.cs" />
+    <Compile Include="Repositories\CondicionVentaRepository.cs" />
     <Compile Include="Repositories\ProductoRepository.cs" />
     <Compile Include="Repositories\ProveedorRepository.cs" />
     <Compile Include="Repositories\ProvinciaRepository.cs" />

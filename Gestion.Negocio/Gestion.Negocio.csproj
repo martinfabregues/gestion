@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alicuotas.cs" />
     <Compile Include="Categorias.cs" />
     <Compile Include="CondicionesIva.cs" />
+    <Compile Include="CondicionesVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincias.cs" />
     <Compile Include="TiposComprobante.cs" />

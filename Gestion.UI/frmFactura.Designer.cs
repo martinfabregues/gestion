@@ -47,10 +47,11 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cboCondicionVenta = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -62,18 +63,17 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,7 +81,7 @@
             this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alicuota_iva = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cboAlicuota = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -151,7 +151,7 @@
             this.precio_unitario,
             this.bonificacion,
             this.subtotal,
-            this.alicuota_iva,
+            this.cboAlicuota,
             this.iva,
             this.total});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -273,14 +273,14 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Cond. Venta:";
             // 
-            // comboBox4
+            // cboCondicionVenta
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(92, 46);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(166, 21);
-            this.comboBox4.TabIndex = 19;
+            this.cboCondicionVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCondicionVenta.FormattingEnabled = true;
+            this.cboCondicionVenta.Location = new System.Drawing.Point(92, 46);
+            this.cboCondicionVenta.Name = "cboCondicionVenta";
+            this.cboCondicionVenta.Size = new System.Drawing.Size(166, 21);
+            this.cboCondicionVenta.TabIndex = 19;
             // 
             // label9
             // 
@@ -321,9 +321,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
             // 
+            // button3
+            // 
+            this.button3.Image = global::Gestion.UI.Properties.Resources.Search_icon;
+            this.button3.Location = new System.Drawing.Point(173, 20);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(32, 23);
+            this.button3.TabIndex = 16;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.cboCondicionVenta);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label3);
@@ -446,6 +455,55 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Totales";
             // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(464, 22);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 20);
+            this.textBox12.TabIndex = 35;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(269, 67);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 36;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(269, 45);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 35;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(269, 22);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 34;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(79, 67);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 33;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(79, 45);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 32;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(79, 22);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 31;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.textBox5);
@@ -486,64 +544,6 @@
             this.button2.Text = "&Salir";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            this.button3.Image = global::Gestion.UI.Properties.Resources.Search_icon;
-            this.button3.Location = new System.Drawing.Point(173, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 23);
-            this.button3.TabIndex = 16;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(79, 22);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 31;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(79, 45);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 32;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(79, 67);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 33;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(269, 22);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 34;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(269, 45);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 35;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(269, 67);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 36;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(464, 22);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 35;
-            // 
             // id
             // 
             this.id.HeaderText = "Id";
@@ -580,10 +580,10 @@
             this.subtotal.HeaderText = "Subtotal";
             this.subtotal.Name = "subtotal";
             // 
-            // alicuota_iva
+            // cboAlicuota
             // 
-            this.alicuota_iva.HeaderText = "Alic. Iva";
-            this.alicuota_iva.Name = "alicuota_iva";
+            this.cboAlicuota.HeaderText = "Alic. Iva";
+            this.cboAlicuota.Name = "cboAlicuota";
             // 
             // iva
             // 
@@ -656,7 +656,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cboCondicionVenta;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -690,7 +690,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_unitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn bonificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
-        private System.Windows.Forms.DataGridViewComboBoxColumn alicuota_iva;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cboAlicuota;
         private System.Windows.Forms.DataGridViewTextBoxColumn iva;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }

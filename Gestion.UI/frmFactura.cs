@@ -23,6 +23,7 @@ namespace Gestion.UI
             FindTiposComprobante();
             FindTiposDocumento();
             FindCondicionesIva();
+            FindCondicionesVenta();
         }
 
         private void FindTiposComprobante()
@@ -66,6 +67,37 @@ namespace Gestion.UI
                 MessageBox.Show("Error : " + e.Message);
             }
         }
+
+
+        private void FindCondicionesVenta()
+        {
+            try
+            {
+                cboCondicionVenta.DisplayMember = "condicion_venta";
+                cboCondicionVenta.ValueMember = "id";
+                cboCondicionVenta.DataSource = CondicionesVenta.FindAll().Where(x => x.activo == 1).ToList();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error : " + e.Message);
+            }
+        }
+
+
+        private void FindAlicuotasIva()
+        {
+            try
+            {
+                cboAlicuota.ValueMember = "id";
+                cboAlicuota.DisplayMember = "alicuota";
+                cboAlicuota.DataSource = Alicuotas.FindAll().Where(x => x.activo == 1).ToList();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error : " + e.Message);
+            }
+        }
+
 
 
     }
