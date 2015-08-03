@@ -2,9 +2,9 @@
 using Gestion.Entidad;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +13,16 @@ using DapperExtensions;
 
 namespace Gestion.Datos.Repositories
 {
-    public interface IProductoRepository : IRepository<Producto>
+    public interface IMarcaRepository : IRepository<Marca>
     {
-        IEnumerable<Producto> FindAllFiltro(string producto);
+        IEnumerable<Marca> FindAllFiltro(string marca);
     }
 
-    public class ProductoRepository : IProductoRepository
+    public class MarcaRepository : IMarcaRepository
     {
         protected readonly IDbConnection _db;
 
-        public ProductoRepository()
+        public MarcaRepository()
         {
             try
             {
@@ -34,16 +34,16 @@ namespace Gestion.Datos.Repositories
             }
         }
 
-        public IEnumerable<Producto> FindAllFiltro(string producto)
+        public IEnumerable<Marca> FindAllFiltro(string marca)
         {
-            string query = "SELECT * FROM PRODUCTOS " +
-               "WHERE ((PRODUCTO LIKE @producto) OR (@producto IS NULL))";
+            string query = "SELECT * FROM MARCA " +
+               "WHERE ((MARCA LIKE @marca) OR (@marca IS NULL))";
 
             try
             {
                 using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
                 {
-                    return _db.Query<Producto>(query, new { producto = '%' + producto + '%' });
+                    return _db.Query<Marca>(query, new { marca = '%' + marca + '%' });
                 }
             }
             catch (Exception e)
@@ -52,15 +52,15 @@ namespace Gestion.Datos.Repositories
             }
         }
 
-        public IEnumerable<Producto> FindAll()
+        public IEnumerable<Marca> FindAll()
         {
-            string query = "SELECT * FROM PRODUCTOS";
+            string query = "SELECT * FROM MARCA";
 
             try
             {
                 using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
                 {
-                    return _db.Query<Producto>(query);
+                    return _db.Query<Marca>(query);
                 }
             }
             catch (Exception e)
@@ -69,24 +69,18 @@ namespace Gestion.Datos.Repositories
             }
         }
 
-        public int Add(Producto entity)
+        public int Add(Marca entity)
         {
-            string query = "INSERT INTO PRODUCTOS (CODIGO, PRODUCTO, CATEGORIA, MARCA, PROVEEDOR, ALICUOTA, STOCK, STOCK_CRITICO, ACTIVO) " + 
-                           "VALUES (@codigo, @producto, @categoria, @marca, @proveedor, @alicuota, @stock, @stock_critico, @activo)";
+            string query = "INSERT INTO MARCA (MARCA, ACTIVO) " +
+                           "VALUES (@marca, @activo)";
             try
             {
                 using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
                 {
-                    return _db.Execute(query, 
-                        new { 
-                            codigo = entity.codigo, 
-                            producto = entity.producto,
-                            categoria = entity.categoria.id,
-                            marca = entity.marca.id,
-                            proveedor = entity.proveedor.id,
-                            alicuota = entity.alicuota.id,
-                            stock = entity.stock,
-                            stock_critico = entity.stock_critico,
+                    return _db.Execute(query,
+                        new
+                        {
+                            marca = entity.marca,
                             activo = entity.activo
                         });
                 }
@@ -97,7 +91,7 @@ namespace Gestion.Datos.Repositories
             }
         }
 
-        public int Modify(Producto entity)
+        public int Modify(Marca entity)
         {
             throw new NotImplementedException();
         }

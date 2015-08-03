@@ -37,7 +37,7 @@ namespace Gestion.Datos.Repositories
         public IEnumerable<Alicuota> FindAllFiltro(string alicuota)
         {
             string query = "SELECT * FROM ALICUOTA " +
-               "WHERE ((PRODUCTO LIKE @alicuota) OR (@alicuota IS NULL))";
+               "WHERE ((ALICUOTA LIKE @alicuota) OR (@alicuota IS NULL))";
 
             try
             {

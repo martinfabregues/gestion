@@ -50,7 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.Ribbon35">
-      <HintPath>..\..\..\..\Desktop\System.Windows.Forms.Ribbon35.dll</HintPath>
+      <HintPath>..\packages\Ribbon\System.Windows.Forms.Ribbon35.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
