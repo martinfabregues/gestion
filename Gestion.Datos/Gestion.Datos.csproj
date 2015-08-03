@@ -49,8 +49,11 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Interfases\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AlicuotaRepository.cs" />
     <Compile Include="Repositories\CategoriaRepository.cs" />
     <Compile Include="Repositories\CondicionIvaRepository.cs" />
+    <Compile Include="Repositories\ProductoRepository.cs" />
+    <Compile Include="Repositories\ProveedorRepository.cs" />
     <Compile Include="Repositories\ProvinciaRepository.cs" />
     <Compile Include="Repositories\TipoComprobanteRepository.cs" />
     <Compile Include="Repositories\TipoDocumentoRepository.cs" />
