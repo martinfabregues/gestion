@@ -35,6 +35,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.cboTipoDocumento = new System.Windows.Forms.ComboBox();
             this.txtDocumento = new System.Windows.Forms.TextBox();
@@ -52,6 +62,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -87,21 +98,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -181,6 +181,73 @@
             this.dgvDetalle.RowHeadersVisible = false;
             this.dgvDetalle.Size = new System.Drawing.Size(918, 169);
             this.dgvDetalle.TabIndex = 5;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // codigo_producto
+            // 
+            this.codigo_producto.HeaderText = "Código";
+            this.codigo_producto.Name = "codigo_producto";
+            this.codigo_producto.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            // 
+            // precio_unitario
+            // 
+            this.precio_unitario.HeaderText = "Precio Uni.";
+            this.precio_unitario.Name = "precio_unitario";
+            this.precio_unitario.ReadOnly = true;
+            // 
+            // bonificacion
+            // 
+            this.bonificacion.HeaderText = "% Bonif.";
+            this.bonificacion.Name = "bonificacion";
+            this.bonificacion.ReadOnly = true;
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            this.subtotal.ReadOnly = true;
+            // 
+            // alicuota
+            // 
+            this.alicuota.HeaderText = "Alic. Iva";
+            this.alicuota.Name = "alicuota";
+            this.alicuota.ReadOnly = true;
+            this.alicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.alicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // iva
+            // 
+            this.iva.HeaderText = "Iva";
+            this.iva.Name = "iva";
+            this.iva.ReadOnly = true;
+            this.iva.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.iva.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // label4
             // 
@@ -341,6 +408,15 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Image = global::Gestion.UI.Properties.Resources.Search_icon;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(170, 16);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(32, 23);
+            this.btnBuscarCliente.TabIndex = 16;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -652,73 +728,6 @@
             // 
             this.error.ContainerControl = this;
             // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // codigo_producto
-            // 
-            this.codigo_producto.HeaderText = "Código";
-            this.codigo_producto.Name = "codigo_producto";
-            this.codigo_producto.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            // 
-            // precio_unitario
-            // 
-            this.precio_unitario.HeaderText = "Precio Uni.";
-            this.precio_unitario.Name = "precio_unitario";
-            this.precio_unitario.ReadOnly = true;
-            // 
-            // bonificacion
-            // 
-            this.bonificacion.HeaderText = "% Bonif.";
-            this.bonificacion.Name = "bonificacion";
-            this.bonificacion.ReadOnly = true;
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            // 
-            // alicuota
-            // 
-            this.alicuota.HeaderText = "Alic. Iva";
-            this.alicuota.Name = "alicuota";
-            this.alicuota.ReadOnly = true;
-            this.alicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.alicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // iva
-            // 
-            this.iva.HeaderText = "Iva";
-            this.iva.Name = "iva";
-            this.iva.ReadOnly = true;
-            this.iva.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.iva.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // btnBuscarProducto
             // 
             this.btnBuscarProducto.Image = global::Gestion.UI.Properties.Resources.Search_icon;
@@ -746,7 +755,7 @@
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.Location = new System.Drawing.Point(851, 567);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(94, 23);
+            this.btnSalir.Size = new System.Drawing.Size(94, 32);
             this.btnSalir.TabIndex = 34;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -757,25 +766,16 @@
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(12, 567);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(96, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(96, 32);
             this.btnGuardar.TabIndex = 33;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.Image = global::Gestion.UI.Properties.Resources.Search_icon;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(170, 16);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(32, 23);
-            this.btnBuscarCliente.TabIndex = 16;
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 602);
+            this.ClientSize = new System.Drawing.Size(957, 611);
             this.Controls.Add(this.btnBuscarProducto);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);

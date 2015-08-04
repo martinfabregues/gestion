@@ -128,6 +128,12 @@
     <Compile Include="frmFactura.Designer.cs">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFacturasAutorizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFacturasAutorizar.Designer.cs">
+      <DependentUpon>frmFacturasAutorizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMarcaABM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFacturasAutorizar.resx">
+      <DependentUpon>frmFacturasAutorizar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMarcaABM.resx">
       <DependentUpon>frmMarcaABM.cs</DependentUpon>

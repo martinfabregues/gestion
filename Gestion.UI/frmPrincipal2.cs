@@ -123,5 +123,12 @@ namespace Gestion.UI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void facturaciónElectronicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFacturasAutorizar frm = new frmFacturasAutorizar();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

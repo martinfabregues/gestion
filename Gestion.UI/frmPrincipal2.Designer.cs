@@ -280,6 +280,7 @@
             this.facturaciónElectronicaToolStripMenuItem.Name = "facturaciónElectronicaToolStripMenuItem";
             this.facturaciónElectronicaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.facturaciónElectronicaToolStripMenuItem.Text = "&Facturación Electronica";
+            this.facturaciónElectronicaToolStripMenuItem.Click += new System.EventHandler(this.facturaciónElectronicaToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
