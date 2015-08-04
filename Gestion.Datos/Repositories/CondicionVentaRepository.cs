@@ -54,7 +54,19 @@ namespace Gestion.Datos.Repositories
 
         public int Add(CondicionVenta entity)
         {
-            throw new NotImplementedException();
+            string query = "INSERT INTO CONDICIONESVENTA (CONDICION_VENTA, ACTIVO) VALUES (@condicionventa, @activo)";
+
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Execute(query, new { condicionventa = entity.condicion_venta, activo = entity.activo });
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public int Modify(CondicionVenta entity)

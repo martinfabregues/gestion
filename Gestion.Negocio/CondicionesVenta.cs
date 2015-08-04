@@ -36,5 +36,20 @@ namespace Gestion.Negocio
                 throw e;
             }
         }
+
+
+        public static int Add(CondicionVenta entity)
+        {
+            try
+            {
+                ICondicionVentaRepository _repository = new CondicionVentaRepository();
+                return _repository.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }

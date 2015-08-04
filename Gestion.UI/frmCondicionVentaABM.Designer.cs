@@ -30,16 +30,16 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.txtCondicionVenta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvCondicionesVenta = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCondicionesVenta)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtCategoria);
+            this.groupBox1.Controls.Add(this.txtCondicionVenta);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(8, 12);
             this.groupBox1.Name = "groupBox1";
@@ -66,14 +66,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "(Presiona F1 para ayuda)";
             // 
-            // txtCategoria
+            // txtCondicionVenta
             // 
-            this.txtCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCategoria.Location = new System.Drawing.Point(74, 24);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(209, 20);
-            this.txtCategoria.TabIndex = 1;
-            this.txtCategoria.Tag = "";
+            this.txtCondicionVenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCondicionVenta.Location = new System.Drawing.Point(74, 24);
+            this.txtCondicionVenta.Name = "txtCondicionVenta";
+            this.txtCondicionVenta.Size = new System.Drawing.Size(209, 20);
+            this.txtCondicionVenta.TabIndex = 1;
+            this.txtCondicionVenta.Tag = "";
+            this.txtCondicionVenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCondicionVenta_KeyDown);
             // 
             // label1
             // 
@@ -101,6 +102,38 @@
             this.dgvCondicionesVenta.RowHeadersVisible = false;
             this.dgvCondicionesVenta.Size = new System.Drawing.Size(308, 231);
             this.dgvCondicionesVenta.TabIndex = 27;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // categoria
+            // 
+            this.categoria.HeaderText = "C. Venta";
+            this.categoria.Name = "categoria";
+            this.categoria.ReadOnly = true;
+            // 
+            // activo
+            // 
+            this.activo.HeaderText = "Activo";
+            this.activo.Name = "activo";
+            this.activo.ReadOnly = true;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Image = global::Gestion.UI.Properties.Resources.back;
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(247, 323);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(69, 24);
+            this.btnSalir.TabIndex = 23;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
@@ -137,38 +170,7 @@
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Image = global::Gestion.UI.Properties.Resources.back;
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(247, 323);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(69, 24);
-            this.btnSalir.TabIndex = 23;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // categoria
-            // 
-            this.categoria.HeaderText = "C. Venta";
-            this.categoria.Name = "categoria";
-            this.categoria.ReadOnly = true;
-            // 
-            // activo
-            // 
-            this.activo.HeaderText = "Activo";
-            this.activo.Name = "activo";
-            this.activo.ReadOnly = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // frmCondicionVentaABM
             // 
@@ -187,6 +189,8 @@
             this.Name = "frmCondicionVentaABM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCondicionVentaABM";
+            this.Activated += new System.EventHandler(this.frmCondicionVentaABM_Activated);
+            this.Load += new System.EventHandler(this.frmCondicionVentaABM_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCondicionesVenta)).EndInit();
@@ -198,7 +202,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCategoria;
+        private System.Windows.Forms.TextBox txtCondicionVenta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvCondicionesVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
