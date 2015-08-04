@@ -61,7 +61,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -82,8 +81,6 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -99,6 +96,10 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -403,15 +404,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
             // 
-            // button3
-            // 
-            this.button3.Image = global::Gestion.UI.Properties.Resources.Search_icon;
-            this.button3.Location = new System.Drawing.Point(173, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(32, 23);
-            this.button3.TabIndex = 16;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cboCondicionVenta);
@@ -473,7 +465,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(924, 140);
+            this.tabPage2.Size = new System.Drawing.Size(924, 175);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Otros Tributos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -604,31 +596,9 @@
             this.textBox5.Size = new System.Drawing.Size(338, 60);
             this.textBox5.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Image = global::Gestion.UI.Properties.Resources.save;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(12, 567);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "&Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Image = global::Gestion.UI.Properties.Resources.back;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(851, 567);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 23);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "&Salir";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // textBox13
             // 
-            this.textBox13.BackColor = System.Drawing.Color.LightGray;
+            this.textBox13.BackColor = System.Drawing.Color.PowderBlue;
             this.textBox13.Location = new System.Drawing.Point(12, 237);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(78, 20);
@@ -679,17 +649,19 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(830, 235);
+            this.button4.Image = global::Gestion.UI.Properties.Resources.down_3;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(827, 234);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(107, 21);
+            this.button4.Size = new System.Drawing.Size(107, 24);
             this.button4.TabIndex = 42;
-            this.button4.Text = "button4";
+            this.button4.Text = "&Agregar";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 222);
+            this.label16.Location = new System.Drawing.Point(9, 222);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(43, 13);
             this.label16.TabIndex = 43;
@@ -698,7 +670,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(133, 222);
+            this.label17.Location = new System.Drawing.Point(126, 222);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(66, 13);
             this.label17.TabIndex = 44;
@@ -707,7 +679,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(438, 221);
+            this.label18.Location = new System.Drawing.Point(432, 221);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(49, 13);
             this.label18.TabIndex = 45;
@@ -716,7 +688,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(508, 221);
+            this.label19.Location = new System.Drawing.Point(502, 222);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(62, 13);
             this.label19.TabIndex = 46;
@@ -725,7 +697,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(592, 222);
+            this.label20.Location = new System.Drawing.Point(586, 222);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(45, 13);
             this.label20.TabIndex = 47;
@@ -734,7 +706,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(663, 221);
+            this.label21.Location = new System.Drawing.Point(656, 222);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(45, 13);
             this.label21.TabIndex = 48;
@@ -743,17 +715,58 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(736, 222);
+            this.label22.Location = new System.Drawing.Point(730, 221);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(60, 13);
             this.label22.TabIndex = 49;
             this.label22.Text = "Importe Iva";
+            // 
+            // button5
+            // 
+            this.button5.Image = global::Gestion.UI.Properties.Resources.Search_icon;
+            this.button5.Location = new System.Drawing.Point(92, 235);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(29, 23);
+            this.button5.TabIndex = 50;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = global::Gestion.UI.Properties.Resources.back;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(851, 567);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 23);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "&Salir";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Gestion.UI.Properties.Resources.save;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(12, 567);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "&Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Image = global::Gestion.UI.Properties.Resources.Search_icon;
+            this.button3.Location = new System.Drawing.Point(173, 20);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(32, 23);
+            this.button3.TabIndex = 16;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 602);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
@@ -874,5 +887,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button button5;
     }
 }

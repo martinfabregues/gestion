@@ -263,6 +263,16 @@ namespace Gestion.UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down_3 {
+            get {
+                object obj = ResourceManager.GetObject("down_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_16 {
             get {
                 object obj = ResourceManager.GetObject("edit_16", resourceCulture);
