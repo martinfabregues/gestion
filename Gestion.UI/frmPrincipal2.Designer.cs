@@ -401,6 +401,7 @@
             this.aliCuotasIVAABMToolStripMenuItem.Name = "aliCuotasIVAABMToolStripMenuItem";
             this.aliCuotasIVAABMToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.aliCuotasIVAABMToolStripMenuItem.Text = "&Alicuotas IVA ABM";
+            this.aliCuotasIVAABMToolStripMenuItem.Click += new System.EventHandler(this.aliCuotasIVAABMToolStripMenuItem_Click);
             // 
             // frmPrincipal2
             // 

@@ -116,5 +116,12 @@ namespace Gestion.UI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void aliCuotasIVAABMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAlicuotaABM frm = new frmAlicuotaABM();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

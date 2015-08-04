@@ -38,5 +38,18 @@ namespace Gestion.Negocio
             }
         }
 
+
+        public static int Add(Alicuota entity)
+        {
+            try
+            {
+                IAlicuotaRepository _repository = new AlicuotaRepository();
+                return _repository.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

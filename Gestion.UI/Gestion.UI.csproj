@@ -62,6 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAlicuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlicuota.Designer.cs">
+      <DependentUpon>frmAlicuota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlicuotaABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlicuotaABM.Designer.cs">
+      <DependentUpon>frmAlicuotaABM.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +202,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAlicuota.resx">
+      <DependentUpon>frmAlicuota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlicuotaABM.resx">
+      <DependentUpon>frmAlicuotaABM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>

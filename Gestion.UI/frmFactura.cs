@@ -55,6 +55,7 @@ namespace Gestion.UI
             FindTiposDocumento();
             FindCondicionesIva();
             FindCondicionesVenta();
+            FindAlicuotasIva();
         }
 
         private void FindTiposComprobante()
