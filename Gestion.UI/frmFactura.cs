@@ -18,8 +18,39 @@ namespace Gestion.UI
             InitializeComponent();
         }
 
+        private void IniciarControles()
+        {
+            txtBonificacion.Text = "0";
+            txtCantidad.Text = "0";
+            txtCodigoCliente.Text = string.Empty;
+            txtCodigoProducto.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtDocumento.Text = string.Empty;
+            txtImporteIva.Text = "0";
+            txtIva105.Text = "0";
+            txtIva21.Text = "0";
+            txtIva25.Text = "0";
+            txtIva27.Text = "0";
+            txtIva5.Text = "0";
+            txtNombre.Text = string.Empty;
+            txtObservaciones.Text = string.Empty;
+            txtOtrosTributos.Text = "0";
+            txtPrecioUnitario.Text = "0";
+            txtSubtotal.Text = "0";
+
+            txtDescripcion.Enabled = false;
+            txtNombre.Enabled = false;
+            txtDireccion.Enabled = false;
+            txtDocumento.Enabled = false;
+            cboTipoDocumento.Enabled = false;
+            cboCondicionIva.Enabled = false;
+        }
+
         private void frmFactura_Load(object sender, EventArgs e)
         {
+            IniciarControles();
+
             FindTiposComprobante();
             FindTiposDocumento();
             FindCondicionesIva();
