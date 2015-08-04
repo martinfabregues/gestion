@@ -98,6 +98,12 @@
     <Compile Include="frmCondicionIvaABM.Designer.cs">
       <DependentUpon>frmCondicionIvaABM.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCondicionVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCondicionVenta.Designer.cs">
+      <DependentUpon>frmCondicionVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCondicionVentaABM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCondicionIvaABM.resx">
       <DependentUpon>frmCondicionIvaABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCondicionVenta.resx">
+      <DependentUpon>frmCondicionVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCondicionVentaABM.resx">
       <DependentUpon>frmCondicionVentaABM.cs</DependentUpon>

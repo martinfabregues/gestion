@@ -58,6 +58,7 @@
             this.tiposDeComprobanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeDocumentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.condicionesDeIVAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.condiciionesDeVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,7 @@
             this.ordenDeCompraABMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.condiciionesDeVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aliCuotasIVAABMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,7 +196,8 @@
             this.tiposDeComprobanteToolStripMenuItem,
             this.tiposDeDocumentoToolStripMenuItem,
             this.condicionesDeIVAToolStripMenuItem,
-            this.condiciionesDeVentaToolStripMenuItem});
+            this.condiciionesDeVentaToolStripMenuItem,
+            this.aliCuotasIVAABMToolStripMenuItem});
             this.fActuraciónToolStripMenuItem.Name = "fActuraciónToolStripMenuItem";
             this.fActuraciónToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.fActuraciónToolStripMenuItem.Text = "&Facturación";
@@ -305,6 +307,12 @@
             this.condicionesDeIVAToolStripMenuItem.Text = "&Condiciones de IVA";
             this.condicionesDeIVAToolStripMenuItem.Click += new System.EventHandler(this.condicionesDeIVAToolStripMenuItem_Click);
             // 
+            // condiciionesDeVentaToolStripMenuItem
+            // 
+            this.condiciionesDeVentaToolStripMenuItem.Name = "condiciionesDeVentaToolStripMenuItem";
+            this.condiciionesDeVentaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.condiciionesDeVentaToolStripMenuItem.Text = "&Condiciones de Venta";
+            // 
             // inventarioToolStripMenuItem
             // 
             this.inventarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -387,11 +395,11 @@
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // condiciionesDeVentaToolStripMenuItem
+            // aliCuotasIVAABMToolStripMenuItem
             // 
-            this.condiciionesDeVentaToolStripMenuItem.Name = "condiciionesDeVentaToolStripMenuItem";
-            this.condiciionesDeVentaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.condiciionesDeVentaToolStripMenuItem.Text = "&Condiciones de Venta";
+            this.aliCuotasIVAABMToolStripMenuItem.Name = "aliCuotasIVAABMToolStripMenuItem";
+            this.aliCuotasIVAABMToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.aliCuotasIVAABMToolStripMenuItem.Text = "&Alicuotas IVA ABM";
             // 
             // frmPrincipal2
             // 
@@ -458,5 +466,6 @@
         private System.Windows.Forms.ToolStripMenuItem localidadesABMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem condiciionesDeVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aliCuotasIVAABMToolStripMenuItem;
     }
 }
