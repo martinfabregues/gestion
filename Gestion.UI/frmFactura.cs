@@ -45,6 +45,8 @@ namespace Gestion.UI
             txtDocumento.Enabled = false;
             cboTipoDocumento.Enabled = false;
             cboCondicionIva.Enabled = false;
+
+            chkProductos.CheckState = CheckState.Checked;
         }
 
         private void frmFactura_Load(object sender, EventArgs e)
@@ -130,7 +132,15 @@ namespace Gestion.UI
             }
         }
 
-        
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ValidarLineaProductos()
+        {
+
+        }
 
 
 
