@@ -109,5 +109,12 @@ namespace Gestion.UI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void condiciionesDeVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCondicionVentaABM frm = new frmCondicionVentaABM();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

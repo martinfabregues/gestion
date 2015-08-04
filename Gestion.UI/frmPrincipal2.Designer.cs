@@ -312,6 +312,7 @@
             this.condiciionesDeVentaToolStripMenuItem.Name = "condiciionesDeVentaToolStripMenuItem";
             this.condiciionesDeVentaToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.condiciionesDeVentaToolStripMenuItem.Text = "&Condiciones de Venta";
+            this.condiciionesDeVentaToolStripMenuItem.Click += new System.EventHandler(this.condiciionesDeVentaToolStripMenuItem_Click);
             // 
             // inventarioToolStripMenuItem
             // 
