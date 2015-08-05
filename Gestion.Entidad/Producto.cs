@@ -11,8 +11,12 @@ namespace Gestion.Entidad
         public int id { get; set; }
         public string codigo { get; set; }
         public string producto { get; set; }
+        public int categoria_id { get; set; }
+        public int marca_id { get; set; }
+        public int proveedor_id { get; set; }
         public decimal stock { get; set; }
         public decimal stock_critico { get; set; }
+        public int alicuota_id { get; set; }
         public int activo { get; set; }
 
         public virtual Marca marca { get; set; }

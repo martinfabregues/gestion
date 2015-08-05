@@ -14,12 +14,15 @@ namespace Gestion.Entidad
         public string direccion { get; set; }
         public string barrio { get; set; }
         public int codigo_postal { get; set; }
+        public int provincia_id { get; set; }
+        public int localidad_id { get; set; }
         public string cod_area { get; set; }
         public string telefono { get; set; }
         public string web { get; set; }
         public string email { get; set; }
         public string cuit { get; set; }
         public string ing_brutos { get; set; }
+        public int condicion_iva_id { get; set; }
         public string observaciones { get; set; }
         public DateTime fecha_alta { get; set; }
         public int activo { get; set; }

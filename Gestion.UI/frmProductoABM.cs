@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestion.Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,24 @@ namespace Gestion.UI
         public frmProductoABM()
         {
             InitializeComponent();
+        }
+
+        private void frmProductoABM_Load(object sender, EventArgs e)
+        {
+            inicializar();
+        }
+
+        private void inicializar()
+        {
+            dgvProductos.AutoGenerateColumns = false;
+            dgvProductos.DataSource = Productos.FindAllFiltro(null);
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmProducto frm = new frmProducto();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
         }
     }
 }

@@ -55,6 +55,8 @@ namespace Gestion.Datos.Repositories
         public IEnumerable<Proveedor> FindAll()
         {
             string query = "SELECT * FROM PROVEEDORES";
+            // P, PROVINCIAS V, LOCALIDADES L, CONDICIONESIVA I " + 
+                            //"WHERE P.PROVINCIA = V.ID AND P.LOCALIDAD = L.ID AND P.CONDICION_IVA = I.ID
 
             try
             {
