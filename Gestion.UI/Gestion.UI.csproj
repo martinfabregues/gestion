@@ -399,57 +399,7 @@
   <ItemGroup>
     <None Include="Resources\truck.png" />
   </ItemGroup>
-  <ItemGroup> 
-    <EmbeddedResource Include="frmProductoABM.resx">
-      <DependentUpon>frmProductoABM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmProveedores.resx">
-      <DependentUpon>frmProveedores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmProveedoresABM.resx">
-      <DependentUpon>frmProveedoresABM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmProvincia.resx">
-      <DependentUpon>frmProvincia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmProvinciaABM.resx">
-      <DependentUpon>frmProvinciaABM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTipoComprobante.resx">
-      <DependentUpon>frmTipoComprobante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTipoComprobanteABM.resx">
-      <DependentUpon>frmTipoComprobanteABM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTipoDocumento.resx">
-      <DependentUpon>frmTipoDocumento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTipoDocumentoABM.resx">
-      <DependentUpon>frmTipoDocumentoABM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
+  
   <ItemGroup>
     <None Include="Resources\new-file-icon.png" />
   </ItemGroup>
