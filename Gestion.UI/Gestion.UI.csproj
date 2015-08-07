@@ -399,8 +399,7 @@
   <ItemGroup>
     <None Include="Resources\truck.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database1.mdf">
+  <ItemGroup> 
     <EmbeddedResource Include="frmProductoABM.resx">
       <DependentUpon>frmProductoABM.cs</DependentUpon>
     </EmbeddedResource>
