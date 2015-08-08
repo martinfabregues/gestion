@@ -20,31 +20,31 @@ namespace Gestion.UI
 
         private void IniciarControles()
         {
-            txtBonificacion.Text = "0";
-            txtCantidad.Text = "0";
+            txtBonificacion.Text = "0.00";
+            txtCantidad.Text = "0.00";
             txtCodigoCliente.Text = string.Empty;
             txtCodigoProducto.Text = string.Empty;
             txtDescripcion.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             txtDocumento.Text = string.Empty;
-            txtImporteIva.Text = "0";
-            txtIva105.Text = "0";
-            txtIva21.Text = "0";
-            txtIva25.Text = "0";
-            txtIva27.Text = "0";
-            txtIva5.Text = "0";
+            txtImporteIva.Text = "0.00";
+            txtIva105.Text = "0.00";
+            txtIva21.Text = "0.00";
+            txtIva25.Text = "0.00";
+            txtIva27.Text = "0.00";
+            txtIva5.Text = "0.00";
             txtNombre.Text = string.Empty;
             txtObservaciones.Text = string.Empty;
-            txtOtrosTributos.Text = "0";
-            txtPrecioUnitario.Text = "0";
-            txtSubtotal.Text = "0";
+            txtOtrosTributos.Text = "0.00";
+            txtPrecioUnitario.Text = "0.00";
+            txtSubtotal.Text = "0.00";
 
-            txtDescripcion.Enabled = false;
-            txtNombre.Enabled = false;
-            txtDireccion.Enabled = false;
-            txtDocumento.Enabled = false;
-            cboTipoDocumento.Enabled = false;
-            cboCondicionIva.Enabled = false;
+            //txtDescripcion.Enabled = false;
+            //txtNombre.Enabled = false;
+            //txtDireccion.Enabled = false;
+            //txtDocumento.Enabled = false;
+            //cboTipoDocumento.Enabled = false;
+            //cboCondicionIva.Enabled = false;
 
             chkProductos.CheckState = CheckState.Checked;
         }
@@ -134,12 +134,54 @@ namespace Gestion.UI
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if(ValidarLineaProductos() == true)
+            {
+                double subtotal = (Convert.ToDouble(txtPrecioUnitario.Text) * Convert.ToDouble(txtCantidad.Text));
+                double importeiva = (Convert.ToDouble(txtImporteIva.Text) * Convert.ToDouble(txtCantidad.Text));
+                double total = subtotal + importeiva;
 
+                dgvDetalle.Rows.Add(0, txtCodigoProducto.Text, txtDescripcion.Text, txtCantidad.Text,
+                    txtPrecioUnitario.Text, txtBonificacion.Text, subtotal,
+                    cboAlicuota.SelectedValue, cboAlicuota.Text, 
+                    importeiva, total);
+            }
         }
 
-        private void ValidarLineaProductos()
+        private Boolean ValidarLineaProductos()
         {
+            bool resultado = true;
 
+            if(String.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                resultado = false;
+                error.SetError(txtDescripcion, "Debe completar el campo Descripción.");
+            }
+
+            if (String.IsNullOrEmpty(txtCantidad.Text))
+            {
+                resultado = false;
+                error.SetError(txtCantidad, "Debe completar el campo Cantidad.");
+            }
+
+            if (String.IsNullOrEmpty(txtPrecioUnitario.Text))
+            {
+                resultado = false;
+                error.SetError(txtPrecioUnitario, "Debe completar el campo Precio Unit.");
+            }
+
+            if (String.IsNullOrEmpty(txtBonificacion.Text))
+            {
+                resultado = false;
+                error.SetError(txtBonificacion, "Debe completar el campo Bonificación.");
+            }
+            
+            if (String.IsNullOrEmpty(txtImporteIva.Text))
+            {
+                resultado = false;
+                error.SetError(txtImporteIva, "Debe completar el campo Importe Iva.");
+            }
+
+            return resultado;
         }
 
 
