@@ -20,19 +20,17 @@ namespace Gestion.UI
 
         private void IniciarControles()
         {
-            txtBonificacion.Text = "0.00";
-            txtCantidad.Text = "0.00";
+           
             txtCodigoCliente.Text = string.Empty;
-            txtCodigoProducto.Text = string.Empty;
-            txtDescripcion.Text = string.Empty;
+          
             txtDireccion.Text = string.Empty;
             txtDocumento.Text = string.Empty;
-            txtImporteIva.Text = "0.00";
+            
          
             txtNombre.Text = string.Empty;
             txtObservaciones.Text = string.Empty;
             txtOtrosTributos.Text = "0.00";
-            txtPrecioUnitario.Text = "0.00";
+           
             txtSubtotal.Text = "0.00";
             txtIva.Text = "0.00";
             txtTotal.Text = "0.00";
@@ -133,62 +131,16 @@ namespace Gestion.UI
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            if(ValidarLineaProductos() == true)
-            {
-                double subtotal = (Convert.ToDouble(txtPrecioUnitario.Text) * Convert.ToDouble(txtCantidad.Text));
-                double importeiva = (Convert.ToDouble(txtImporteIva.Text) * Convert.ToDouble(txtCantidad.Text));
-                double total = subtotal + importeiva;
-
-                dgvDetalle.Rows.Add(0, txtCodigoProducto.Text, txtDescripcion.Text, txtCantidad.Text,
-                    txtPrecioUnitario.Text, txtBonificacion.Text, subtotal,
-                    cbo.SelectedValue, cbo.Text, 
-                    importeiva, total);
-            }
-        }
-
-        private Boolean ValidarLineaProductos()
-        {
-            bool resultado = true;
-
-            if(String.IsNullOrEmpty(txtDescripcion.Text))
-            {
-                resultado = false;
-                error.SetError(txtDescripcion, "Debe completar el campo Descripción.");
-            }
-
-            if (String.IsNullOrEmpty(txtCantidad.Text))
-            {
-                resultado = false;
-                error.SetError(txtCantidad, "Debe completar el campo Cantidad.");
-            }
-
-            if (String.IsNullOrEmpty(txtPrecioUnitario.Text))
-            {
-                resultado = false;
-                error.SetError(txtPrecioUnitario, "Debe completar el campo Precio Unit.");
-            }
-
-            if (String.IsNullOrEmpty(txtBonificacion.Text))
-            {
-                resultado = false;
-                error.SetError(txtBonificacion, "Debe completar el campo Bonificación.");
-            }
-            
-            if (String.IsNullOrEmpty(txtImporteIva.Text))
-            {
-                resultado = false;
-                error.SetError(txtImporteIva, "Debe completar el campo Importe Iva.");
-            }
-
-            return resultado;
-        }
-
-        private void btnAgregarFila_Click(object sender, EventArgs e)
+        private void btnNuevaFila_Click(object sender, EventArgs e)
         {
             dgvDetalle.Rows.Add();
         }
+
+     
+
+        
+
+        
 
        
 
