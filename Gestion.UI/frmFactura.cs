@@ -28,16 +28,14 @@ namespace Gestion.UI
             txtDireccion.Text = string.Empty;
             txtDocumento.Text = string.Empty;
             txtImporteIva.Text = "0.00";
-            txtIva105.Text = "0.00";
-            txtIva21.Text = "0.00";
-            txtIva25.Text = "0.00";
-            txtIva27.Text = "0.00";
-            txtIva5.Text = "0.00";
+         
             txtNombre.Text = string.Empty;
             txtObservaciones.Text = string.Empty;
             txtOtrosTributos.Text = "0.00";
             txtPrecioUnitario.Text = "0.00";
             txtSubtotal.Text = "0.00";
+            txtIva.Text = "0.00";
+            txtTotal.Text = "0.00";
 
             //txtDescripcion.Enabled = false;
             //txtNombre.Enabled = false;
@@ -47,6 +45,8 @@ namespace Gestion.UI
             //cboCondicionIva.Enabled = false;
 
             chkProductos.CheckState = CheckState.Checked;
+
+            dgvDetalle.RowCount = 1;
         }
 
         private void frmFactura_Load(object sender, EventArgs e)
@@ -124,6 +124,7 @@ namespace Gestion.UI
             {
                 cboAlicuota.ValueMember = "id";
                 cboAlicuota.DisplayMember = "alicuota";
+                cboAlicuota.DataPropertyName = "id";
                 cboAlicuota.DataSource = Alicuotas.FindAll().Where(x => x.activo == 1).ToList();
             }
             catch(Exception e)
@@ -142,7 +143,7 @@ namespace Gestion.UI
 
                 dgvDetalle.Rows.Add(0, txtCodigoProducto.Text, txtDescripcion.Text, txtCantidad.Text,
                     txtPrecioUnitario.Text, txtBonificacion.Text, subtotal,
-                    cboAlicuota.SelectedValue, cboAlicuota.Text, 
+                    cbo.SelectedValue, cbo.Text, 
                     importeiva, total);
             }
         }
@@ -184,6 +185,12 @@ namespace Gestion.UI
             return resultado;
         }
 
+        private void btnAgregarFila_Click(object sender, EventArgs e)
+        {
+            dgvDetalle.Rows.Add();
+        }
+
+       
 
 
     }

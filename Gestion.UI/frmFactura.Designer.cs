@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.cboTipoDocumento = new System.Windows.Forms.ComboBox();
             this.txtDocumento = new System.Windows.Forms.TextBox();
@@ -50,26 +49,30 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cboCondicionVenta = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preciounitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboAlicuota = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtOtrosTributos = new System.Windows.Forms.TextBox();
-            this.txtIva25 = new System.Windows.Forms.TextBox();
-            this.txtIva5 = new System.Windows.Forms.TextBox();
-            this.txtIva105 = new System.Windows.Forms.TextBox();
-            this.txtIva21 = new System.Windows.Forms.TextBox();
-            this.txtIva27 = new System.Windows.Forms.TextBox();
+            this.txtIva = new System.Windows.Forms.TextBox();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
@@ -78,7 +81,7 @@
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtPrecioUnitario = new System.Windows.Forms.TextBox();
             this.txtBonificacion = new System.Windows.Forms.TextBox();
-            this.cboAlicuota = new System.Windows.Forms.ComboBox();
+            this.cbo = new System.Windows.Forms.ComboBox();
             this.txtImporteIva = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -92,23 +95,13 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_unitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo_alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
+            this.btnAgregarFila = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
@@ -158,31 +151,6 @@
             this.dtpFecha.ShowCheckBox = true;
             this.dtpFecha.Size = new System.Drawing.Size(120, 20);
             this.dtpFecha.TabIndex = 4;
-            // 
-            // dgvDetalle
-            // 
-            this.dgvDetalle.AllowUserToAddRows = false;
-            this.dgvDetalle.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.codigo_producto,
-            this.descripcion,
-            this.cantidad,
-            this.precio_unitario,
-            this.bonificacion,
-            this.subtotal,
-            this.codigo_alicuota,
-            this.alicuota,
-            this.iva,
-            this.total});
-            this.dgvDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetalle.Location = new System.Drawing.Point(3, 3);
-            this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.ReadOnly = true;
-            this.dgvDetalle.RowHeadersVisible = false;
-            this.dgvDetalle.Size = new System.Drawing.Size(918, 169);
-            this.dgvDetalle.TabIndex = 5;
             // 
             // label4
             // 
@@ -308,20 +276,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 17);
+            this.label9.Location = new System.Drawing.Point(47, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 20;
             this.label9.Text = "Subtotal:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 59);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 13);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Iva 21%:";
             // 
             // groupBox1
             // 
@@ -379,15 +338,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Conceptos ";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(204, 17);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Iva 10.5%:";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -409,6 +359,77 @@
             this.tabPage1.Text = "Detalle Factura";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dgvDetalle
+            // 
+            this.dgvDetalle.AllowUserToAddRows = false;
+            this.dgvDetalle.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.codigo,
+            this.descripcion,
+            this.cantidad,
+            this.preciounitario,
+            this.bonificacion,
+            this.subtotal,
+            this.cboAlicuota,
+            this.total});
+            this.dgvDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetalle.Location = new System.Drawing.Point(3, 3);
+            this.dgvDetalle.Name = "dgvDetalle";
+            this.dgvDetalle.RowHeadersVisible = false;
+            this.dgvDetalle.Size = new System.Drawing.Size(918, 169);
+            this.dgvDetalle.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.Name = "descripcion";
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            // 
+            // preciounitario
+            // 
+            this.preciounitario.HeaderText = "Precio Unit.";
+            this.preciounitario.Name = "preciounitario";
+            // 
+            // bonificacion
+            // 
+            this.bonificacion.HeaderText = "% Bonif.";
+            this.bonificacion.Name = "bonificacion";
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            // 
+            // cboAlicuota
+            // 
+            this.cboAlicuota.HeaderText = "Alícuota";
+            this.cboAlicuota.Name = "cboAlicuota";
+            this.cboAlicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cboAlicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -422,107 +443,71 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(23, 37);
+            this.label12.Location = new System.Drawing.Point(71, 40);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.Size = new System.Drawing.Size(25, 13);
             this.label12.TabIndex = 27;
-            this.label12.Text = "Iva 27%:";
+            this.label12.Text = "Iva:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(382, 17);
+            this.label13.Location = new System.Drawing.Point(20, 64);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 13);
             this.label13.TabIndex = 28;
             this.label13.Text = "Otros Tributos:";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(219, 37);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 13);
-            this.label14.TabIndex = 29;
-            this.label14.Text = "Iva 5%:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(210, 59);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 13);
-            this.label15.TabIndex = 30;
-            this.label15.Text = "Iva 2.5%:";
-            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtTotal);
+            this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.txtOtrosTributos);
-            this.groupBox4.Controls.Add(this.txtIva25);
-            this.groupBox4.Controls.Add(this.txtIva5);
-            this.groupBox4.Controls.Add(this.txtIva105);
-            this.groupBox4.Controls.Add(this.txtIva21);
-            this.groupBox4.Controls.Add(this.txtIva27);
+            this.groupBox4.Controls.Add(this.txtIva);
             this.groupBox4.Controls.Add(this.txtSubtotal);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Location = new System.Drawing.Point(19, 473);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(570, 85);
+            this.groupBox4.Size = new System.Drawing.Size(386, 85);
             this.groupBox4.TabIndex = 31;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Totales";
             // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(257, 14);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.TabIndex = 37;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(217, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "Total:";
+            // 
             // txtOtrosTributos
             // 
-            this.txtOtrosTributos.Location = new System.Drawing.Point(464, 14);
+            this.txtOtrosTributos.Location = new System.Drawing.Point(102, 61);
             this.txtOtrosTributos.Name = "txtOtrosTributos";
             this.txtOtrosTributos.Size = new System.Drawing.Size(100, 20);
             this.txtOtrosTributos.TabIndex = 35;
             // 
-            // txtIva25
+            // txtIva
             // 
-            this.txtIva25.Location = new System.Drawing.Point(269, 59);
-            this.txtIva25.Name = "txtIva25";
-            this.txtIva25.Size = new System.Drawing.Size(100, 20);
-            this.txtIva25.TabIndex = 36;
-            // 
-            // txtIva5
-            // 
-            this.txtIva5.Location = new System.Drawing.Point(269, 37);
-            this.txtIva5.Name = "txtIva5";
-            this.txtIva5.Size = new System.Drawing.Size(100, 20);
-            this.txtIva5.TabIndex = 35;
-            // 
-            // txtIva105
-            // 
-            this.txtIva105.Location = new System.Drawing.Point(269, 14);
-            this.txtIva105.Name = "txtIva105";
-            this.txtIva105.Size = new System.Drawing.Size(100, 20);
-            this.txtIva105.TabIndex = 34;
-            // 
-            // txtIva21
-            // 
-            this.txtIva21.Location = new System.Drawing.Point(79, 59);
-            this.txtIva21.Name = "txtIva21";
-            this.txtIva21.Size = new System.Drawing.Size(100, 20);
-            this.txtIva21.TabIndex = 33;
-            // 
-            // txtIva27
-            // 
-            this.txtIva27.Location = new System.Drawing.Point(79, 37);
-            this.txtIva27.Name = "txtIva27";
-            this.txtIva27.Size = new System.Drawing.Size(100, 20);
-            this.txtIva27.TabIndex = 32;
+            this.txtIva.Location = new System.Drawing.Point(102, 37);
+            this.txtIva.Name = "txtIva";
+            this.txtIva.Size = new System.Drawing.Size(100, 20);
+            this.txtIva.TabIndex = 32;
             // 
             // txtSubtotal
             // 
-            this.txtSubtotal.Location = new System.Drawing.Point(79, 14);
+            this.txtSubtotal.Location = new System.Drawing.Point(102, 14);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
             this.txtSubtotal.TabIndex = 31;
@@ -530,9 +515,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.txtObservaciones);
-            this.groupBox5.Location = new System.Drawing.Point(590, 473);
+            this.groupBox5.Location = new System.Drawing.Point(411, 473);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(350, 85);
+            this.groupBox5.Size = new System.Drawing.Size(529, 85);
             this.groupBox5.TabIndex = 32;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Observaciones";
@@ -542,7 +527,7 @@
             this.txtObservaciones.Location = new System.Drawing.Point(6, 19);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(338, 60);
+            this.txtObservaciones.Size = new System.Drawing.Size(517, 60);
             this.txtObservaciones.TabIndex = 0;
             // 
             // txtCodigoProducto
@@ -582,13 +567,13 @@
             this.txtBonificacion.Size = new System.Drawing.Size(64, 20);
             this.txtBonificacion.TabIndex = 39;
             // 
-            // cboAlicuota
+            // cbo
             // 
-            this.cboAlicuota.FormattingEnabled = true;
-            this.cboAlicuota.Location = new System.Drawing.Point(659, 236);
-            this.cboAlicuota.Name = "cboAlicuota";
-            this.cboAlicuota.Size = new System.Drawing.Size(68, 21);
-            this.cboAlicuota.TabIndex = 40;
+            this.cbo.FormattingEnabled = true;
+            this.cbo.Location = new System.Drawing.Point(659, 236);
+            this.cbo.Name = "cbo";
+            this.cbo.Size = new System.Drawing.Size(68, 21);
+            this.cbo.TabIndex = 40;
             // 
             // txtImporteIva
             // 
@@ -677,7 +662,7 @@
             // 
             this.btnAgregar.Image = global::Gestion.UI.Properties.Resources.down_3;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(827, 234);
+            this.btnAgregar.Location = new System.Drawing.Point(827, 232);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(107, 24);
             this.btnAgregar.TabIndex = 42;
@@ -707,85 +692,22 @@
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // id
+            // btnAgregarFila
             // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // codigo_producto
-            // 
-            this.codigo_producto.HeaderText = "Código";
-            this.codigo_producto.Name = "codigo_producto";
-            this.codigo_producto.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            // 
-            // precio_unitario
-            // 
-            this.precio_unitario.HeaderText = "Precio Uni.";
-            this.precio_unitario.Name = "precio_unitario";
-            this.precio_unitario.ReadOnly = true;
-            // 
-            // bonificacion
-            // 
-            this.bonificacion.HeaderText = "% Bonif.";
-            this.bonificacion.Name = "bonificacion";
-            this.bonificacion.ReadOnly = true;
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            this.subtotal.ReadOnly = true;
-            // 
-            // codigo_alicuota
-            // 
-            this.codigo_alicuota.HeaderText = "Cod. Alicuota";
-            this.codigo_alicuota.Name = "codigo_alicuota";
-            this.codigo_alicuota.ReadOnly = true;
-            this.codigo_alicuota.Visible = false;
-            // 
-            // alicuota
-            // 
-            this.alicuota.HeaderText = "Alic. Iva";
-            this.alicuota.Name = "alicuota";
-            this.alicuota.ReadOnly = true;
-            this.alicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.alicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // iva
-            // 
-            this.iva.HeaderText = "Iva";
-            this.iva.Name = "iva";
-            this.iva.ReadOnly = true;
-            this.iva.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.iva.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.total.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.btnAgregarFila.Location = new System.Drawing.Point(737, 260);
+            this.btnAgregarFila.Name = "btnAgregarFila";
+            this.btnAgregarFila.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarFila.TabIndex = 51;
+            this.btnAgregarFila.Text = "&Agregar Fila";
+            this.btnAgregarFila.UseVisualStyleBackColor = true;
+            this.btnAgregarFila.Click += new System.EventHandler(this.btnAgregarFila_Click);
             // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 611);
+            this.Controls.Add(this.btnAgregarFila);
             this.Controls.Add(this.btnBuscarProducto);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
@@ -796,7 +718,7 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtImporteIva);
-            this.Controls.Add(this.cboAlicuota);
+            this.Controls.Add(this.cbo);
             this.Controls.Add(this.txtBonificacion);
             this.Controls.Add(this.txtPrecioUnitario);
             this.Controls.Add(this.txtCantidad);
@@ -816,7 +738,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmFactura";
             this.Load += new System.EventHandler(this.frmFactura_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -825,6 +746,7 @@
             this.groupBox3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -842,7 +764,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.DataGridView dgvDetalle;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboTipoDocumento;
         private System.Windows.Forms.TextBox txtDocumento;
@@ -858,18 +779,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cboCondicionVenta;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txtObservaciones;
@@ -877,18 +794,14 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.TextBox txtOtrosTributos;
-        private System.Windows.Forms.TextBox txtIva25;
-        private System.Windows.Forms.TextBox txtIva5;
-        private System.Windows.Forms.TextBox txtIva105;
-        private System.Windows.Forms.TextBox txtIva21;
-        private System.Windows.Forms.TextBox txtIva27;
+        private System.Windows.Forms.TextBox txtIva;
         private System.Windows.Forms.TextBox txtSubtotal;
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.TextBox txtPrecioUnitario;
         private System.Windows.Forms.TextBox txtBonificacion;
-        private System.Windows.Forms.ComboBox cboAlicuota;
+        private System.Windows.Forms.ComboBox cbo;
         private System.Windows.Forms.TextBox txtImporteIva;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label16;
@@ -900,16 +813,18 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.DataGridView dgvDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio_unitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preciounitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn bonificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo_alicuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alicuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iva;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cboAlicuota;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnAgregarFila;
     }
 }
