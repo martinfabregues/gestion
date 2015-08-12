@@ -60,6 +60,9 @@ namespace Gestion.UI
 
             dgvDetalle.Columns[8].DefaultCellStyle.NullValue = "0.00";
             dgvDetalle.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
         }
 
         private void frmFactura_Load(object sender, EventArgs e)
@@ -154,10 +157,40 @@ namespace Gestion.UI
             dgvDetalle.Rows.Add();
         }
 
-      
+        private void dgvDetalle_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(SoloNumeros_KeyPress);
+            if (dgvDetalle.CurrentCell.ColumnIndex == 3 || dgvDetalle.CurrentCell.ColumnIndex == 4 ||
+                dgvDetalle.CurrentCell.ColumnIndex == 5 || dgvDetalle.CurrentCell.ColumnIndex == 6 ||
+                dgvDetalle.CurrentCell.ColumnIndex == 8) 
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(SoloNumeros_KeyPress);
+                }
+            }
 
-     
+            ComboBox cbo = e.Control as ComboBox;
+            if(cbo != null)
+            {
+                cbo.SelectionChangeCommitted += new EventHandler(ComboBox_SelectionChangeCommited);
+            }
+        }
 
+        private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void ComboBox_SelectionChangeCommited(object sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(((ComboBox)sender).SelectedValue);
+        }
         
 
         

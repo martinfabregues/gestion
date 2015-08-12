@@ -407,6 +407,7 @@
             this.dgvDetalle.RowHeadersVisible = false;
             this.dgvDetalle.Size = new System.Drawing.Size(918, 197);
             this.dgvDetalle.TabIndex = 0;
+            this.dgvDetalle.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDetalle_EditingControlShowing);
             // 
             // id
             // 
