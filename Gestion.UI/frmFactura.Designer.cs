@@ -83,6 +83,12 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAgregarFila = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvAlicuotas = new System.Windows.Forms.DataGridView();
+            this.id_alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baseimponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,6 +99,8 @@
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlicuotas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -329,6 +337,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(12, 210);
             this.tabControl1.Name = "tabControl1";
@@ -582,6 +591,53 @@
             this.btnAgregarFila.Text = "&Agregar Fila";
             this.btnAgregarFila.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvAlicuotas);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(924, 231);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Alícuotas IVA";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvAlicuotas
+            // 
+            this.dgvAlicuotas.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvAlicuotas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAlicuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAlicuotas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_alicuota,
+            this.alicuota,
+            this.baseimponible,
+            this.importe_iva});
+            this.dgvAlicuotas.Location = new System.Drawing.Point(3, 3);
+            this.dgvAlicuotas.Name = "dgvAlicuotas";
+            this.dgvAlicuotas.Size = new System.Drawing.Size(918, 225);
+            this.dgvAlicuotas.TabIndex = 0;
+            // 
+            // id_alicuota
+            // 
+            this.id_alicuota.HeaderText = "Id";
+            this.id_alicuota.Name = "id_alicuota";
+            this.id_alicuota.Visible = false;
+            // 
+            // alicuota
+            // 
+            this.alicuota.HeaderText = "Alícuota";
+            this.alicuota.Name = "alicuota";
+            // 
+            // baseimponible
+            // 
+            this.baseimponible.HeaderText = "Base Imp.";
+            this.baseimponible.Name = "baseimponible";
+            // 
+            // importe_iva
+            // 
+            this.importe_iva.HeaderText = "Imp. IVA";
+            this.importe_iva.Name = "importe_iva";
+            // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,6 +675,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAlicuotas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -679,5 +737,11 @@
         private System.Windows.Forms.ToolStripButton btnNuevaFila;
         private System.Windows.Forms.Button btnAgregarFila;
         private System.Windows.Forms.ToolStripButton btnQuitarFila;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dgvAlicuotas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_alicuota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alicuota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn baseimponible;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importe_iva;
     }
 }

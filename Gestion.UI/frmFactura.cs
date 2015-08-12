@@ -45,6 +45,21 @@ namespace Gestion.UI
             chkProductos.CheckState = CheckState.Checked;
 
             dgvDetalle.RowCount = 1;
+
+            dgvDetalle.Columns[3].DefaultCellStyle.NullValue = "0.00";
+            dgvDetalle.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns[4].DefaultCellStyle.NullValue = "0.00";
+            dgvDetalle.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns[5].DefaultCellStyle.NullValue = "0.00";
+            dgvDetalle.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns[6].DefaultCellStyle.NullValue = "0.00";
+            dgvDetalle.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvDetalle.Columns[8].DefaultCellStyle.NullValue = "0.00";
+            dgvDetalle.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         private void frmFactura_Load(object sender, EventArgs e)
@@ -124,6 +139,9 @@ namespace Gestion.UI
                 cboAlicuota.DisplayMember = "alicuota";
                 cboAlicuota.DataPropertyName = "id";
                 cboAlicuota.DataSource = Alicuotas.FindAll().Where(x => x.activo == 1).ToList();
+
+                if (cboAlicuota.Items.Count != 0)
+                    dgvDetalle.Rows[0].Cells["cboAlicuota"].Value = 1;
             }
             catch(Exception e)
             {
@@ -135,6 +153,8 @@ namespace Gestion.UI
         {
             dgvDetalle.Rows.Add();
         }
+
+      
 
      
 
