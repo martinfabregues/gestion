@@ -17,11 +17,7 @@ namespace Gestion.Entidad
         public int cliente_id { get; set; }
         public int concepto { get; set; }
         public double subtotal { get; set; }
-        public double iva_27 { get; set; }
-        public double iva_21 { get; set;}
-        public double iva_105 { get; set; }
-        public double iva_5 { get; set; }
-        public double iva_25 { get; set; }
+        public double iva { get; set; }      
         public double otros_tributos { get; set; }
         public double total { get; set; }
         public string observaciones { get; set; }
