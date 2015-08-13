@@ -24,6 +24,7 @@ namespace Gestion.Entidad
         public string cae { get; set; }
         public DateTime fecha_vencimiento_cae { get; set; }
         public string codigo_barras { get; set; }
+        public string estado_afip { get; set; }
         public string estado { get; set; }
     }
 }

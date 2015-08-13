@@ -334,12 +334,12 @@ namespace Gestion.UI
                 factura.cliente_id = 1;
                 factura.concepto = GetConceptoFactura();
                 factura.condicionventa_id = Convert.ToInt32(cboCondicionVenta.SelectedValue);
-                factura.estado = "R";
+                factura.estado = "P";
                 factura.fecha = dtpFecha.Value;
                 factura.iva = Convert.ToDouble(txtIva.Text);
                 factura.observaciones = txtObservaciones.Text;
                 factura.otros_tributos = Convert.ToDouble(txtOtrosTributos.Text);
-                factura.puntoventa_id = 1;
+                factura.puntoventa_id = 3;
                 factura.subtotal = Convert.ToDouble(txtSubtotal.Text);
                 factura.tipocomprobante_id = Convert.ToInt32(cboTipoComprobante.SelectedValue);
                 factura.total = Convert.ToDouble(txtTotal.Text);
