@@ -344,6 +344,17 @@ namespace Gestion.UI
                 factura.tipocomprobante_id = Convert.ToInt32(cboTipoComprobante.SelectedValue);
                 factura.total = Convert.ToDouble(txtTotal.Text);
 
+                int resultado = Facturas.Add(factura);
+                if(resultado > 0)
+                {
+                    MessageBox.Show("Los datos se registraron correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //LimpiarControles();
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error al registrar los datos. Intente Nuevamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
             }
             catch(Exception e)
@@ -396,6 +407,11 @@ namespace Gestion.UI
             {
                 CalcularTotal();
             }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            RegistrarFactura();
         }
 
     }

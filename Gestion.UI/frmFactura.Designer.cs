@@ -588,6 +588,7 @@
             this.btnGuardar.TabIndex = 33;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnAgregarFila
             // 
