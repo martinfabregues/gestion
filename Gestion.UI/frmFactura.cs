@@ -46,7 +46,7 @@ namespace Gestion.UI
 
             dgvDetalle.RowCount = 1;
 
-            dgvDetalle.Columns[3].DefaultCellStyle.NullValue = "0.00";
+            dgvDetalle.Columns[3].DefaultCellStyle.NullValue = "1.00";
             dgvDetalle.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             dgvDetalle.Columns[4].DefaultCellStyle.NullValue = "0.00";
@@ -191,9 +191,25 @@ namespace Gestion.UI
         {
             int value = Convert.ToInt32(((ComboBox)sender).SelectedValue);
         }
+
+        private void dgvDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex.Equals(3))
+            {
+                
+            }
+
+            if(e.ColumnIndex.Equals(8))
+            {
+                double importe = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[8].Value);
+            }
+        }
         
 
-        
+        private void AgregarFilaAlicuotaIva()
+        {
+
+        }
 
        
 
