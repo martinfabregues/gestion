@@ -44,9 +44,9 @@ namespace Gestion.Datos.Repositories
         public int Add(Factura entity)
         {
             string query = "INSERT INTO FACTURA (FECHA, NUMERO, TIPOCOMPROBANTE_ID, PUNTOVENTA_ID, CONDICIONVENTA_ID, CLIENTE_ID, CONCEPTO, SUBTOTAL, " +
-                            "IVA_27, IVA_21, IVA_105, IVA_5, IVA_25, OTROS_TRIBUTOS, TOTAL, OBSERVACIONES, CAE, FECHA_VENCIMIENTO_CAE, CODIGO_BARRAS, " +
+                            "IVA, OTROS_TRIBUTOS, TOTAL, OBSERVACIONES, CAE, FECHA_VENCIMIENTO_CAE, CODIGO_BARRAS, " +
                             "ESTADO) VALUES (@fecha, @numero, @tipocomprobante_id, @puntoventa_id, @condicionventa_id, @cliente_id, @concepto, @subtotal, " + 
-                            "@iva_27, @iva_21, @iva_105, @iva_5, @iva_25, @otros_tributos, @total, @observaciones, @cae, @fechavencimientocae, @codigobarras, " + 
+                            "@iva, @otros_tributos, @total, @observaciones, @cae, @fechavencimientocae, @codigobarras, " + 
                             "estado);" +
                             "SELECT SCOPE_IDENTITY();";
             try
@@ -63,11 +63,7 @@ namespace Gestion.Datos.Repositories
                         cliente_id = entity.cliente_id,
                         concepto = entity.concepto,
                         subtotal = entity.subtotal,
-                        iva_27 = entity.iva_27,
-                        iva_21 = entity.iva_21,
-                        iva_105 = entity.iva_105,
-                        iva_5 = entity.iva_5,
-                        iva_25 = entity.iva_25,
+                        iva = entity.iva,                       
                         otros_tributos = entity.otros_tributos,
                         total = entity.total,
                         observaciones = entity.observaciones,

@@ -36,12 +36,6 @@ namespace Gestion.UI
             txtIva.Text = "0.00";
             txtTotal.Text = "0.00";
 
-            //txtDescripcion.Enabled = false;
-            //txtNombre.Enabled = false;
-            //txtDireccion.Enabled = false;
-            //txtDocumento.Enabled = false;
-            //cboTipoDocumento.Enabled = false;
-            //cboCondicionIva.Enabled = false;
 
             chkProductos.CheckState = CheckState.Checked;
 
@@ -220,6 +214,7 @@ namespace Gestion.UI
 
                 double subtotal = (cantidad * (precio_unitario * bonificacion));
 
+                dgvDetalle.Rows[e.RowIndex].Cells[3].Value = Math.Round(Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[6].Value), 2);
                 dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
             }
 
@@ -238,6 +233,7 @@ namespace Gestion.UI
 
                 double subtotal = (cantidad * (precio_unitario * bonificacion));
 
+                dgvDetalle.Rows[e.RowIndex].Cells[4].Value = Math.Round(Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[4].Value), 2); ;
                 dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
             }
 
