@@ -44,6 +44,11 @@ namespace Gestion.Negocio
             try
             {
                 IAlicuotaRepository _repository = new AlicuotaRepository();
+
+                //calculo el formato del porcentaje de la alicuota
+                double porcentaje = entity.porcentaje / 100;
+                entity.porcentaje = porcentaje;
+
                 return _repository.Add(entity);
             }
             catch (Exception e)
@@ -51,5 +56,21 @@ namespace Gestion.Negocio
                 throw e;
             }
         }
+
+
+
+        public static Alicuota FindById(int id)
+        {
+            try
+            {
+                IAlicuotaRepository _repository = new AlicuotaRepository();
+                return _repository.FindById(id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }

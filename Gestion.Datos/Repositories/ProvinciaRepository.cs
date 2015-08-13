@@ -97,5 +97,11 @@ namespace Gestion.Datos.Repositories
                 throw e;
             }
         }
+
+
+        public Provincia FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

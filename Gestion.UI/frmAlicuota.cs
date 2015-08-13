@@ -23,6 +23,8 @@ namespace Gestion.UI
         {
             txtAlicuota.Text = string.Empty;
             txtCodigoAfip.Text = string.Empty;
+            txtPorcentaje.Text = string.Empty;
+
             ckbActivo.CheckState = CheckState.Checked;
 
             this.ActiveControl = txtAlicuota;
@@ -49,6 +51,11 @@ namespace Gestion.UI
                 resultado = false;
                 error.SetError(txtCodigoAfip, "Debe completar el campo Código AFIP.");
             }
+            if(string.IsNullOrEmpty(txtPorcentaje.Text))
+            {
+                resultado = false;
+                error.SetError(txtPorcentaje, "Debe completar el campo Porcentaje.");
+            }
 
             return resultado;
         }
@@ -61,6 +68,7 @@ namespace Gestion.UI
             {
                 Alicuota alicuota = new Alicuota();
                 alicuota.alicuota = txtAlicuota.Text;
+                alicuota.porcentaje = Convert.ToDouble(txtPorcentaje.Text);
                 alicuota.activo = Convert.ToInt32(ckbActivo.Checked);
                 alicuota.codigo_afip = Convert.ToInt32(txtCodigoAfip.Text);
 
@@ -86,6 +94,8 @@ namespace Gestion.UI
         {
             txtCodigoAfip.Text = string.Empty;
             txtAlicuota.Text = string.Empty;
+            txtPorcentaje.Text = string.Empty;
+
             ckbActivo.CheckState = CheckState.Checked;
         }
 
@@ -110,6 +120,16 @@ namespace Gestion.UI
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPorcentaje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && e.KeyChar != '.')
+            {
+                error.SetError(txtPorcentaje, "Solo se permiten numeros en campo Porcentaje.");
+                e.Handled = true;
+                return;
+            }
         }
 
     }

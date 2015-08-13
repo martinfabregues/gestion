@@ -101,5 +101,11 @@ namespace Gestion.Datos.Repositories
                 throw e;
             }
         }
+
+
+        public TipoComprobante FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

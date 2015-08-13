@@ -71,8 +71,8 @@ namespace Gestion.Datos.Repositories
 
         public int Add(Alicuota entity)
         {
-            string query = "INSERT INTO ALICUOTA (ALICUOTA, CODIGO_AFIP, ACTIVO) " +
-                           "VALUES (@alicuota, @codigo_afip, @activo)";
+            string query = "INSERT INTO ALICUOTA (ALICUOTA, PORCENTAJE, CODIGO_AFIP, ACTIVO) " +
+                           "VALUES (@alicuota, @porcentaje, @codigo_afip, @activo)";
             try
             {
                 using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
@@ -81,6 +81,7 @@ namespace Gestion.Datos.Repositories
                         new
                         {
                             alicuota = entity.alicuota,
+                            porcentaje = entity.porcentaje,
                             codigo_afip = entity.codigo_afip,
                             activo = entity.activo
                         });
@@ -100,6 +101,23 @@ namespace Gestion.Datos.Repositories
         public int Remove(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public Alicuota FindById(int id)
+        {
+            string query = "SELECT * FROM ALICUOTA " +
+                            "WHERE ID = @id";
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Query<Alicuota>(query, new { id = id }).SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

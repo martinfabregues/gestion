@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPorcentaje = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCodigoAfip = new System.Windows.Forms.TextBox();
             this.txtAlicuota = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ckbActivo = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtCodigoAfip = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.error = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
@@ -45,6 +47,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtPorcentaje);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtCodigoAfip);
             this.groupBox1.Controls.Add(this.txtAlicuota);
@@ -53,9 +57,43 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(357, 109);
+            this.groupBox1.Size = new System.Drawing.Size(357, 133);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Porcentaje:";
+            // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.Location = new System.Drawing.Point(88, 48);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Size = new System.Drawing.Size(100, 20);
+            this.txtPorcentaje.TabIndex = 2;
+            this.txtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentaje_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 77);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Código AFIP:";
+            // 
+            // txtCodigoAfip
+            // 
+            this.txtCodigoAfip.Location = new System.Drawing.Point(88, 74);
+            this.txtCodigoAfip.Name = "txtCodigoAfip";
+            this.txtCodigoAfip.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoAfip.TabIndex = 3;
+            this.txtCodigoAfip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoAfip_KeyPress);
             // 
             // txtAlicuota
             // 
@@ -63,12 +101,12 @@
             this.txtAlicuota.Location = new System.Drawing.Point(88, 24);
             this.txtAlicuota.Name = "txtAlicuota";
             this.txtAlicuota.Size = new System.Drawing.Size(235, 20);
-            this.txtAlicuota.TabIndex = 3;
+            this.txtAlicuota.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 78);
+            this.label2.Location = new System.Drawing.Point(39, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 2;
@@ -77,10 +115,10 @@
             // ckbActivo
             // 
             this.ckbActivo.AutoSize = true;
-            this.ckbActivo.Location = new System.Drawing.Point(88, 77);
+            this.ckbActivo.Location = new System.Drawing.Point(88, 100);
             this.ckbActivo.Name = "ckbActivo";
             this.ckbActivo.Size = new System.Drawing.Size(15, 14);
-            this.ckbActivo.TabIndex = 1;
+            this.ckbActivo.TabIndex = 4;
             this.ckbActivo.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -97,10 +135,10 @@
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Image = global::Gestion.UI.Properties.Resources.back;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(276, 123);
+            this.btnSalir.Location = new System.Drawing.Point(276, 147);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(94, 24);
-            this.btnSalir.TabIndex = 30;
+            this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -109,30 +147,13 @@
             // 
             this.btnGuardar.Image = global::Gestion.UI.Properties.Resources.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(13, 123);
+            this.btnGuardar.Location = new System.Drawing.Point(13, 147);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(94, 24);
-            this.btnGuardar.TabIndex = 29;
+            this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // txtCodigoAfip
-            // 
-            this.txtCodigoAfip.Location = new System.Drawing.Point(88, 49);
-            this.txtCodigoAfip.Name = "txtCodigoAfip";
-            this.txtCodigoAfip.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoAfip.TabIndex = 4;
-            this.txtCodigoAfip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoAfip_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Código AFIP:";
             // 
             // error
             // 
@@ -144,7 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(382, 159);
+            this.ClientSize = new System.Drawing.Size(382, 183);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
@@ -173,5 +194,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigoAfip;
         private System.Windows.Forms.ErrorProvider error;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPorcentaje;
     }
 }

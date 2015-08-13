@@ -96,5 +96,11 @@ namespace Gestion.Datos.Repositories
                 throw e;
             }
         }
+
+
+        public CondicionIva FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

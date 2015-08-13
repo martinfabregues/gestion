@@ -100,5 +100,11 @@ namespace Gestion.Datos.Repositories
         {
             throw new NotImplementedException();
         }
+
+
+        public Marca FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

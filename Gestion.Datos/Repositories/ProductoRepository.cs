@@ -138,5 +138,11 @@ namespace Gestion.Datos.Repositories
                 throw e;
             }
         }
+
+
+        public Producto FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

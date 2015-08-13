@@ -95,5 +95,11 @@ namespace Gestion.Datos.Repositories
                 throw e;
             }
         }
+
+
+        public Categoria FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

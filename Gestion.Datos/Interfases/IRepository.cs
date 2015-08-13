@@ -12,5 +12,6 @@ namespace Gestion.Datos.Interfases
         int Add(T entity);
         int Modify(T entity);
         int Remove(int id);
+        T FindById(int id);
     }
 }

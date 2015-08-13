@@ -118,5 +118,11 @@ namespace Gestion.Datos.Repositories
         {
             throw new NotImplementedException();
         }
+
+
+        public Proveedor FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

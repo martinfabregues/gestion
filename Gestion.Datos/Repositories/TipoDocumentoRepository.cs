@@ -99,5 +99,11 @@ namespace Gestion.Datos.Repositories
                 throw e;
             }
         }
+
+
+        public TipoDocumento FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

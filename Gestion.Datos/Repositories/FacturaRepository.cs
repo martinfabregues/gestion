@@ -94,5 +94,11 @@ namespace Gestion.Datos.Repositories
         {
             throw new NotImplementedException();
         }
+
+
+        public Factura FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

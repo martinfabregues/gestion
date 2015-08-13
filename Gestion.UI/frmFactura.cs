@@ -1,4 +1,5 @@
-﻿using Gestion.Negocio;
+﻿using Gestion.Entidad;
+using Gestion.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -194,21 +195,89 @@ namespace Gestion.UI
 
         private void dgvDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            //columna cantidad
             if(e.ColumnIndex.Equals(3))
             {
-                
+                int cantidad = Convert.ToInt32(dgvDetalle.Rows[e.RowIndex].Cells[3].Value);
+                double precio_unitario = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[4].Value);
+                double bonificacion = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[5].Value);
+
+                if (cantidad == 0)
+                    cantidad = 1;
+
+                if (bonificacion == 0)
+                    bonificacion = 1;
+
+                double subtotal = (cantidad * (precio_unitario * bonificacion));
+
+                dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
             }
 
-            if(e.ColumnIndex.Equals(8))
+            //columna precio unitario
+            if(e.ColumnIndex.Equals(4))
             {
-                double importe = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[8].Value);
+                int cantidad = Convert.ToInt32(dgvDetalle.Rows[e.RowIndex].Cells[3].Value);
+                double precio_unitario = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[4].Value);
+                double bonificacion = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[5].Value);
+
+                if (cantidad == 0)
+                    cantidad = 1;
+
+                if (bonificacion == 0)
+                    bonificacion = 1;
+
+                double subtotal = (cantidad * (precio_unitario * bonificacion));
+
+                dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
             }
+
+            //columna bonificacion
+            if(e.ColumnIndex.Equals(5))
+            {
+                int cantidad = Convert.ToInt32(dgvDetalle.Rows[e.RowIndex].Cells[3].Value);
+                double precio_unitario = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[4].Value);
+                double bonificacion = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[5].Value);
+
+                if (cantidad == 0)
+                    cantidad = 1;
+
+                if (bonificacion == 0)
+                    bonificacion = 1;
+
+                double subtotal = (cantidad * (precio_unitario * bonificacion));
+
+                dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
+            }
+
+
+           
         }
         
 
-        private void AgregarFilaAlicuotaIva()
+        private void AgregarFilaAlicuotaIva(double subtotal, int alicuota_id)
         {
+            Alicuota alicuota = Alicuotas.FindById(alicuota_id);
 
+            dgvAlicuotas.Rows.Add(alicuota.id, alicuota.alicuota, subtotal, (subtotal * alicuota.porcentaje));
+
+
+        }
+
+        private void dgvDetalle_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(6))
+            {
+                if (dgvDetalle.Rows.Count != 0)
+                {
+                    if (Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[6].Value) != 0)
+                    {
+                        double subtotal = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[6].Value);
+                        int alicuota_id = Convert.ToInt32(dgvDetalle.Rows[e.RowIndex].Cells[7].Value);
+
+                        AgregarFilaAlicuotaIva(subtotal, alicuota_id);
+                    }
+                }
+            }
         }
 
        
