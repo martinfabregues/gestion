@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -329,7 +330,7 @@ namespace Gestion.UI
         private void RegistrarFactura()
         {
             try
-            {
+              {
                 Factura factura = new Factura();
                 factura.cliente_id = 1;
                 factura.concepto = GetConceptoFactura();
@@ -343,6 +344,7 @@ namespace Gestion.UI
                 factura.subtotal = Convert.ToDouble(txtSubtotal.Text);
                 factura.tipocomprobante_id = Convert.ToInt32(cboTipoComprobante.SelectedValue);
                 factura.total = Convert.ToDouble(txtTotal.Text);
+                factura.fecha_vencimiento_cae = dtpFecha.Value;
 
                 int resultado = Facturas.Add(factura);
                 if(resultado > 0)

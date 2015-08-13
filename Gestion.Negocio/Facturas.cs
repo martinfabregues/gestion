@@ -22,5 +22,19 @@ namespace Gestion.Negocio
                 throw e;
             }
         }
+
+
+        public static IEnumerable<Factura> FindAll()
+        {
+            try
+            {
+                IFacturaRepository _repository = new FacturaRepository();
+                return _repository.FindAll();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

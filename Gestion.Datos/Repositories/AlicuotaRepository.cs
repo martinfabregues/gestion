@@ -36,7 +36,7 @@ namespace Gestion.Datos.Repositories
 
         public IEnumerable<Alicuota> FindAllFiltro(string alicuota)
         {
-            string query = "SELECT * FROM ALICUOTA " +
+            string query = "SELECT * FROM ALICUOTAS " +
                "WHERE ((ALICUOTA LIKE @alicuota) OR (@alicuota IS NULL))";
 
             try
@@ -54,7 +54,7 @@ namespace Gestion.Datos.Repositories
 
         public IEnumerable<Alicuota> FindAll()
         {
-            string query = "SELECT * FROM ALICUOTA";
+            string query = "SELECT * FROM ALICUOTAS";
 
             try
             {
@@ -71,7 +71,7 @@ namespace Gestion.Datos.Repositories
 
         public int Add(Alicuota entity)
         {
-            string query = "INSERT INTO ALICUOTA (ALICUOTA, PORCENTAJE, CODIGO_AFIP, ACTIVO) " +
+            string query = "INSERT INTO ALICUOTAS (ALICUOTA, PORCENTAJE, CODIGO_AFIP, ACTIVO) " +
                            "VALUES (@alicuota, @porcentaje, @codigo_afip, @activo)";
             try
             {
@@ -105,7 +105,7 @@ namespace Gestion.Datos.Repositories
 
         public Alicuota FindById(int id)
         {
-            string query = "SELECT * FROM ALICUOTA " +
+            string query = "SELECT * FROM ALICUOTAS " +
                             "WHERE ID = @id";
             try
             {
