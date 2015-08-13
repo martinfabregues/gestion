@@ -49,18 +49,19 @@ namespace Gestion.UI
 
             dgvDetalle.Columns[3].DefaultCellStyle.NullValue = "1.00";
             dgvDetalle.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvDetalle.Columns[3].DefaultCellStyle.Format = "n2";
 
             dgvDetalle.Columns[4].DefaultCellStyle.NullValue = "0.00";
             dgvDetalle.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvDetalle.Columns[4].DefaultCellStyle.Format = "n2";
 
             dgvDetalle.Columns[5].DefaultCellStyle.NullValue = "0.00";
             dgvDetalle.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvDetalle.Columns[5].DefaultCellStyle.Format = "n2";
 
             dgvDetalle.Columns[6].DefaultCellStyle.NullValue = "0.00";
             dgvDetalle.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            dgvDetalle.Columns[8].DefaultCellStyle.NullValue = "0.00";
-            dgvDetalle.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvDetalle.Columns[6].DefaultCellStyle.Format = "n2";
 
             dgvDetalle.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
@@ -138,14 +139,11 @@ namespace Gestion.UI
         private void FindAlicuotasIva()
         {
             try
-            {
-                cboAlicuota.ValueMember = "id";
+            {                
+                cboAlicuota.DataSource = Alicuotas.FindAll().Where(x => x.activo == 1).ToList();                
                 cboAlicuota.DisplayMember = "alicuota";
+                cboAlicuota.ValueMember = "id";
                 cboAlicuota.DataPropertyName = "id";
-                cboAlicuota.DataSource = Alicuotas.FindAll().Where(x => x.activo == 1).ToList();
-
-                if (cboAlicuota.Items.Count != 0)
-                    dgvDetalle.Rows[0].Cells["cboAlicuota"].Value = 1;
             }
             catch(Exception e)
             {
@@ -162,8 +160,7 @@ namespace Gestion.UI
         {
             e.Control.KeyPress -= new KeyPressEventHandler(SoloNumeros_KeyPress);
             if (dgvDetalle.CurrentCell.ColumnIndex == 3 || dgvDetalle.CurrentCell.ColumnIndex == 4 ||
-                dgvDetalle.CurrentCell.ColumnIndex == 5 || dgvDetalle.CurrentCell.ColumnIndex == 6 ||
-                dgvDetalle.CurrentCell.ColumnIndex == 8) 
+                dgvDetalle.CurrentCell.ColumnIndex == 5 || dgvDetalle.CurrentCell.ColumnIndex == 6 ) 
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
@@ -175,9 +172,19 @@ namespace Gestion.UI
             ComboBox cbo = e.Control as ComboBox;
             if(cbo != null)
             {
-                cbo.SelectionChangeCommitted += new EventHandler(ComboBox_SelectionChangeCommited);
+                
+                cbo.SelectedIndexChanged -= new EventHandler(ComboBox_SelectedIndexChanged);
+                cbo.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);
+                cbo.SelectionChangeCommitted += new EventHandler(cbo_SelectionChangeCommitted);
             }
         }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            AgregarFilaAlicuotaIva();
+        }
+
+
 
         private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -188,9 +195,12 @@ namespace Gestion.UI
         }
 
 
-        private void ComboBox_SelectionChangeCommited(object sender, EventArgs e)
+        private void cbo_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int value = Convert.ToInt32(((ComboBox)sender).SelectedValue);
+
+            dgvDetalle.CurrentCell.Value = value;
+            
         }
 
         private void dgvDetalle_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -249,39 +259,64 @@ namespace Gestion.UI
                 dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
             }
 
-
+            CalcularTotal();
            
         }
         
 
-        private void AgregarFilaAlicuotaIva(double subtotal, int alicuota_id)
+        private void AgregarFilaAlicuotaIva()
         {
-            Alicuota alicuota = Alicuotas.FindById(alicuota_id);
+            dgvAlicuotas.Rows.Clear();
+            foreach(DataGridViewRow row in dgvDetalle.Rows)
+            {
+                double subtotal = Convert.ToDouble(row.Cells[6].Value);
+                int alicuota_id = Convert.ToInt32(row.Cells[7].Value);
 
-            dgvAlicuotas.Rows.Add(alicuota.id, alicuota.alicuota, subtotal, (subtotal * alicuota.porcentaje));
+                if (Convert.ToDouble(row.Cells[6].Value) != 0 && alicuota_id != 0)
+                {
+                    Alicuota alicuota = Alicuotas.FindById(alicuota_id);
 
+                    dgvAlicuotas.Rows.Add(alicuota.id, alicuota.alicuota, subtotal, (subtotal * alicuota.porcentaje));
+                }
+            }
 
+            CalcularIva();
         }
 
         private void dgvDetalle_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex.Equals(6))
-            {
-                if (dgvDetalle.Rows.Count != 0)
-                {
-                    if (Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[6].Value) != 0)
-                    {
-                        double subtotal = Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[6].Value);
-                        int alicuota_id = Convert.ToInt32(dgvDetalle.Rows[e.RowIndex].Cells[7].Value);
-
-                        AgregarFilaAlicuotaIva(subtotal, alicuota_id);
-                    }
-                }
-            }
+            
         }
 
        
+        private void CalcularTotal()
+        {
+            if (dgvDetalle.Rows.Count != 0)
+            {
+                double subtotal = 0;
+                foreach (DataGridViewRow row in dgvDetalle.Rows)
+                {
+                    subtotal += Convert.ToDouble(row.Cells[6].Value);
+                }
 
+                txtSubtotal.Text = subtotal.ToString();
+            }
+
+        }
+
+        private void CalcularIva()
+        {
+            if (dgvAlicuotas.Rows.Count != 0)
+            {
+                double subtotal_iva = 0;
+                foreach (DataGridViewRow row in dgvAlicuotas.Rows)
+                {
+                    subtotal_iva += Convert.ToDouble(row.Cells[3].Value);
+                }
+
+                txtIva.Text = subtotal_iva.ToString();
+            }
+        }
 
     }
 }

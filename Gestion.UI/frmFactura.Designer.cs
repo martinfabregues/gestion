@@ -59,15 +59,6 @@
             this.btnNuevaFila = new System.Windows.Forms.ToolStripButton();
             this.btnQuitarFila = new System.Windows.Forms.ToolStripButton();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preciounitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboAlicuota = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvAlicuotas = new System.Windows.Forms.DataGridView();
             this.id_alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +80,14 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAgregarFila = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preciounitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboAlicuota = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -400,8 +399,7 @@
             this.preciounitario,
             this.bonificacion,
             this.subtotal,
-            this.cboAlicuota,
-            this.total});
+            this.cboAlicuota});
             this.dgvDetalle.Location = new System.Drawing.Point(3, 31);
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.RowHeadersVisible = false;
@@ -410,54 +408,6 @@
             this.dgvDetalle.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalle_CellEndEdit);
             this.dgvDetalle.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalle_CellValueChanged);
             this.dgvDetalle.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDetalle_EditingControlShowing);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            // 
-            // preciounitario
-            // 
-            this.preciounitario.HeaderText = "Precio Unit.";
-            this.preciounitario.Name = "preciounitario";
-            // 
-            // bonificacion
-            // 
-            this.bonificacion.HeaderText = "% Bonif.";
-            this.bonificacion.Name = "bonificacion";
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            // 
-            // cboAlicuota
-            // 
-            this.cboAlicuota.HeaderText = "Alícuota";
-            this.cboAlicuota.Name = "cboAlicuota";
-            this.cboAlicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cboAlicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
             // 
             // tabPage3
             // 
@@ -472,6 +422,8 @@
             // 
             // dgvAlicuotas
             // 
+            this.dgvAlicuotas.AllowUserToAddRows = false;
+            this.dgvAlicuotas.AllowUserToDeleteRows = false;
             this.dgvAlicuotas.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvAlicuotas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlicuotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -482,6 +434,7 @@
             this.importe_iva});
             this.dgvAlicuotas.Location = new System.Drawing.Point(3, 3);
             this.dgvAlicuotas.Name = "dgvAlicuotas";
+            this.dgvAlicuotas.ReadOnly = true;
             this.dgvAlicuotas.RowHeadersVisible = false;
             this.dgvAlicuotas.Size = new System.Drawing.Size(918, 225);
             this.dgvAlicuotas.TabIndex = 0;
@@ -642,6 +595,49 @@
             this.btnAgregarFila.Text = "&Agregar Fila";
             this.btnAgregarFila.UseVisualStyleBackColor = true;
             // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.Name = "descripcion";
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            // 
+            // preciounitario
+            // 
+            this.preciounitario.HeaderText = "Precio Unit.";
+            this.preciounitario.Name = "preciounitario";
+            // 
+            // bonificacion
+            // 
+            this.bonificacion.HeaderText = "% Bonif.";
+            this.bonificacion.Name = "bonificacion";
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            // 
+            // cboAlicuota
+            // 
+            this.cboAlicuota.HeaderText = "Alícuota";
+            this.cboAlicuota.Name = "cboAlicuota";
+            this.cboAlicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cboAlicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,15 +722,6 @@
         private System.Windows.Forms.TextBox txtSubtotal;
         private System.Windows.Forms.ErrorProvider error;
         private System.Windows.Forms.DataGridView dgvDetalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn preciounitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bonificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cboAlicuota;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ToolStrip toolStrip2;
@@ -747,5 +734,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn alicuota;
         private System.Windows.Forms.DataGridViewTextBoxColumn baseimponible;
         private System.Windows.Forms.DataGridViewTextBoxColumn importe_iva;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preciounitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bonificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cboAlicuota;
     }
 }
