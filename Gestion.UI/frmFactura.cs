@@ -255,7 +255,7 @@ namespace Gestion.UI
                 dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
             }
 
-            CalcularTotal();
+            CalcularSubTotal();
            
         }
         
@@ -285,7 +285,7 @@ namespace Gestion.UI
         }
 
        
-        private void CalcularTotal()
+        private void CalcularSubTotal()
         {
             if (dgvDetalle.Rows.Count != 0)
             {
@@ -311,6 +311,90 @@ namespace Gestion.UI
                 }
 
                 txtIva.Text = subtotal_iva.ToString();
+            }
+        }
+
+
+        private void CalcularTotal()
+        {
+            double total = 0;
+            total = Convert.ToDouble(txtSubtotal.Text) + 
+                Convert.ToDouble(txtIva.Text) + 
+                Convert.ToDouble(txtOtrosTributos.Text);
+
+            txtTotal.Text = total.ToString() ;
+        }
+
+
+        private void RegistrarFactura()
+        {
+            try
+            {
+                Factura factura = new Factura();
+                factura.cliente_id = 1;
+                factura.concepto = GetConceptoFactura();
+                factura.condicionventa_id = Convert.ToInt32(cboCondicionVenta.SelectedValue);
+                factura.estado = "R";
+                factura.fecha = dtpFecha.Value;
+                factura.iva = Convert.ToDouble(txtIva.Text);
+                factura.observaciones = txtObservaciones.Text;
+                factura.otros_tributos = Convert.ToDouble(txtOtrosTributos.Text);
+                factura.puntoventa_id = 1;
+                factura.subtotal = Convert.ToDouble(txtSubtotal.Text);
+                factura.tipocomprobante_id = Convert.ToInt32(cboTipoComprobante.SelectedValue);
+                factura.total = Convert.ToDouble(txtTotal.Text);
+
+
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error : " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int GetConceptoFactura()
+        {
+            int concepto = 0;
+
+            if (chkProductos.CheckState == CheckState.Checked)
+                concepto = 1;
+
+            if (chkServicios.CheckState == CheckState.Checked)
+                concepto = 2;
+
+            if (chkProductos.CheckState == CheckState.Checked && chkServicios.CheckState == CheckState.Checked)
+                concepto = 3;
+
+            return concepto;
+        }
+
+        private void txtSubtotal_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtSubtotal.Text) && 
+                !string.IsNullOrEmpty(txtIva.Text) &&
+                !string.IsNullOrEmpty(txtOtrosTributos.Text))
+            {
+                CalcularTotal();
+            }
+        }
+
+        private void txtIva_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSubtotal.Text) &&
+               !string.IsNullOrEmpty(txtIva.Text) &&
+               !string.IsNullOrEmpty(txtOtrosTributos.Text))
+            {
+                CalcularTotal();
+            }
+        }
+
+        private void txtOtrosTributos_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSubtotal.Text) &&
+               !string.IsNullOrEmpty(txtIva.Text) &&
+               !string.IsNullOrEmpty(txtOtrosTributos.Text))
+            {
+                CalcularTotal();
             }
         }
 

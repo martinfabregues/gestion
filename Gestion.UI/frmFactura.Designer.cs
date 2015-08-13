@@ -527,6 +527,7 @@
             this.txtOtrosTributos.Name = "txtOtrosTributos";
             this.txtOtrosTributos.Size = new System.Drawing.Size(100, 20);
             this.txtOtrosTributos.TabIndex = 35;
+            this.txtOtrosTributos.TextChanged += new System.EventHandler(this.txtOtrosTributos_TextChanged);
             // 
             // txtIva
             // 
@@ -534,6 +535,7 @@
             this.txtIva.Name = "txtIva";
             this.txtIva.Size = new System.Drawing.Size(100, 20);
             this.txtIva.TabIndex = 32;
+            this.txtIva.TextChanged += new System.EventHandler(this.txtIva_TextChanged);
             // 
             // txtSubtotal
             // 
@@ -541,6 +543,7 @@
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
             this.txtSubtotal.TabIndex = 31;
+            this.txtSubtotal.TextChanged += new System.EventHandler(this.txtSubtotal_TextChanged);
             // 
             // groupBox5
             // 
