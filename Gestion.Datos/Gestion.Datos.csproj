@@ -54,6 +54,7 @@
     <Compile Include="Repositories\ClienteRepository.cs" />
     <Compile Include="Repositories\CondicionIvaRepository.cs" />
     <Compile Include="Repositories\CondicionVentaRepository.cs" />
+    <Compile Include="Repositories\FacturaAlicuotaRepository.cs" />
     <Compile Include="Repositories\FacturaRepository.cs" />
     <Compile Include="Repositories\MarcaRepository.cs" />
     <Compile Include="Repositories\ProductoRepository.cs" />
