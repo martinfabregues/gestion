@@ -103,7 +103,20 @@ namespace Gestion.Datos.Repositories
 
         public TipoDocumento FindById(int id)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM TIPOSDOCUMENTO " +
+                "WHERE ID = @id";
+
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Query<TipoDocumento>(query, new { id = id }).SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

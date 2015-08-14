@@ -53,5 +53,19 @@ namespace Gestion.Negocio
         }
 
 
+        public static TipoDocumento FindById(int id)
+        {
+            try
+            {
+                ITipoDocumentoRepository _repository = new TipoDocumentoRepository();
+                return _repository.FindById(id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
     }
 }

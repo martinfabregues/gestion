@@ -50,7 +50,18 @@ namespace Gestion.Negocio
             }
         }
 
-
+        public static TipoComprobante FindById(int id)
+        {
+            try
+            {
+                ITipoComprobanteRepository _repository = new TipoComprobanteRepository();
+                return _repository.FindById(id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
 
 

@@ -105,7 +105,19 @@ namespace Gestion.Datos.Repositories
 
         public TipoComprobante FindById(int id)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM TIPOSCOMPROBANTE " +
+                "WHERE ID = @id";
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Query<TipoComprobante>(query, new { id = id }).SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }
