@@ -138,8 +138,8 @@ namespace Gestion.Datos.Repositories
         public int UpdateComprobanteAfip(Factura factura)
         {
             string query = "UPDATE FACTURAS SET NUMERO = @numero, CAE = @cae, " + 
-                "FECHA_VENCIMIENTO_CAE, @fechavencimientocae, CODIGO_BARRAS = @codigobarras, " + 
-                "ESTADO_AFIP = @estadoafip WHERE ID = @id";
+                "FECHA_VENCIMIENTO_CAE = @fechavencimientocae, CODIGO_BARRAS = @codigobarras, " + 
+                "ESTADO_AFIP = @estadoafip, ESTADO = @estado WHERE ID = @id";
 
             try
             {
@@ -150,7 +150,10 @@ namespace Gestion.Datos.Repositories
                         cae = factura.cae, 
                         fechavencimientocae = factura.fecha_vencimiento_cae, 
                         codigobarras = factura.codigo_barras, 
-                        estadoafip = factura.estado_afip });
+                        estadoafip = factura.estado_afip,
+                        estado = factura.estado,
+                        id = factura.id
+                    });
 
                 }
             }

@@ -68,6 +68,7 @@
             this.dgvFacturas.Name = "dgvFacturas";
             this.dgvFacturas.ReadOnly = true;
             this.dgvFacturas.RowHeadersVisible = false;
+            this.dgvFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFacturas.Size = new System.Drawing.Size(1024, 509);
             this.dgvFacturas.TabIndex = 0;
             this.dgvFacturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacturas_CellClick);
@@ -168,6 +169,7 @@
             this.Name = "frmFacturasAutorizar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmFacturasAutorizar";
+            this.Activated += new System.EventHandler(this.frmFacturasAutorizar_Activated);
             this.Load += new System.EventHandler(this.frmFacturasAutorizar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
             this.ResumeLayout(false);

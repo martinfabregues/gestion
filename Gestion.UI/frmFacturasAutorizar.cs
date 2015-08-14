@@ -60,98 +60,125 @@ namespace Gestion.UI
             {
                 Factura factura = new Factura();
                 factura = Facturas.FindById(factura_id);
-                factura.tipocomprobante = TiposComprobante.FindById(factura.tipocomprobante_id);
 
-                var respuesta = Fe.FECompUltimoAutorizado(3, factura.tipocomprobante.codigo_afip);
-                int ultcomprobante = respuesta.CbteNro;
-
-                factura.alicuotas = FacturasAlicuotas.FindAllByIdFactura(factura_id).ToList();
-
-                int i = 0;
-                AlicIva[] ivas = new AlicIva[factura.alicuotas.Count];
-                foreach (var row in factura.alicuotas)
+                if (factura.estado.Trim() != "A")
                 {
-                    Alicuota alicuota = Alicuotas.FindById(row.alicuota_id);
+                    factura.tipocomprobante = TiposComprobante.FindById(factura.tipocomprobante_id);
 
-                    Afip.FE.Wsfe.AlicIva alic = new Afip.FE.Wsfe.AlicIva();
-                    alic.Id = alicuota.codigo_afip;
-                    alic.BaseImp = row.base_imponible;
-                    alic.Importe = row.importe;
-                    ivas[i] = alic;
+                    var respuesta = Fe.FECompUltimoAutorizado(3, factura.tipocomprobante.codigo_afip);
+                    int ultcomprobante = respuesta.CbteNro;
 
-                    i += 1;
-                }
+                    factura.alicuotas = FacturasAlicuotas.FindAllByIdFactura(factura_id).ToList();
 
-                var response = Fe.FECAESolicitar(1, 3, factura.tipocomprobante.codigo_afip, factura.concepto, 80, 20077998846, ultcomprobante + 1, ultcomprobante + 1, factura.fecha.ToString("yyyyMMdd"), factura.total, 0, factura.subtotal, 0, factura.otros_tributos, factura.iva, "", "", "", "PES", 1, null, null, ivas, null);
-
-                string resultado = response.FeCabResp.Resultado;
-                
-                //Obtengo el CAE y su vencimiento
-                string CAE = response.FeDetResp[0].CAE;
-                string FchVencimiento = response.FeDetResp[0].CAEFchVto;
-                DateTime fechavencimientocae = DateTime.ParseExact(FchVencimiento, "yyyyMMdd", null);
-                
-                long numero_comp = response.FeDetResp[0].CbteDesde;
-                int ptovta = response.FeCabResp.PtoVta;
-
-                string mensaje = string.Empty;
-
-                //Le doy formato al resultado
-                if (resultado == "A")
-                {
-                    mensaje += "Comprobante Autorizado" + Environment.NewLine + Environment.NewLine + 
-                        "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +  
-                        Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() + 
-                        Environment.NewLine + Environment.NewLine;
-                   
-                }
-
-                if (resultado == "R")
-                {
-                    mensaje += "Comprobante Rechazado" + Environment.NewLine + Environment.NewLine;
-                   
-                }
-
-                if (resultado == "P")
-                {
-                    mensaje += "Comprobante Autorizado Parcial" + Environment.NewLine + Environment.NewLine +
-                        "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +
-                        Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() +
-                        Environment.NewLine + Environment.NewLine;
-                    
-                }
-
-                
-
-                //Obtengo las observaciones y las muestro en el textbox
-                var observaciones = response.FeDetResp[0].Observaciones;
-
-                if (observaciones != null)
-                {
-                    foreach (var Obs in observaciones)
-                    {                        
-                        mensaje += " * " + Obs.Code + " : " + Obs.Msg + Environment.NewLine;
-                    }
-                }
-
-                //Obtengo los errores y los muestro si los hubiese
-                var Errors = response.Errors;
-                if (Errors != null)
-                {
-                    foreach (var Error in Errors)
+                    int i = 0;
+                    AlicIva[] ivas = new AlicIva[factura.alicuotas.Count];
+                    foreach (var row in factura.alicuotas)
                     {
-                        mensaje += " * " + Error.Code + " : " + Error.Msg + Environment.NewLine;
+                        Alicuota alicuota = Alicuotas.FindById(row.alicuota_id);
+
+                        Afip.FE.Wsfe.AlicIva alic = new Afip.FE.Wsfe.AlicIva();
+                        alic.Id = alicuota.codigo_afip;
+                        alic.BaseImp = row.base_imponible;
+                        alic.Importe = row.importe;
+                        ivas[i] = alic;
+
+                        i += 1;
                     }
+
+                    var response = Fe.FECAESolicitar(1, 3, factura.tipocomprobante.codigo_afip, factura.concepto, 80, 20077998846, ultcomprobante + 1, ultcomprobante + 1, factura.fecha.ToString("yyyyMMdd"), factura.total, 0, factura.subtotal, 0, factura.otros_tributos, factura.iva, "", "", "", "PES", 1, null, null, ivas, null);
+
+                    string resultado = response.FeCabResp.Resultado;
+
+                    //Obtengo el CAE y su vencimiento
+                    string CAE = response.FeDetResp[0].CAE;
+                    string FchVencimiento = response.FeDetResp[0].CAEFchVto;
+                    DateTime fechavencimientocae = DateTime.ParseExact(FchVencimiento, "yyyyMMdd", null);
+
+                    long numero_comp = response.FeDetResp[0].CbteDesde;
+                    int ptovta = response.FeCabResp.PtoVta;
+
+                    string mensaje = string.Empty;
+
+                    //Le doy formato al resultado
+                    if (resultado == "A")
+                    {
+                        mensaje += "Comprobante Autorizado" + Environment.NewLine + Environment.NewLine +
+                            "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +
+                            Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() +
+                            Environment.NewLine + Environment.NewLine;
+
+                    }
+
+                    if (resultado == "R")
+                    {
+                        mensaje += "Comprobante Rechazado" + Environment.NewLine + Environment.NewLine;
+
+                    }
+
+                    if (resultado == "P")
+                    {
+                        mensaje += "Comprobante Autorizado Parcial" + Environment.NewLine + Environment.NewLine +
+                            "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +
+                            Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() +
+                            Environment.NewLine + Environment.NewLine;
+
+                    }
+
+                    //Obtengo las observaciones y las muestro en el textbox
+                    var observaciones = response.FeDetResp[0].Observaciones;
+
+                    if (observaciones != null)
+                    {
+                        foreach (var Obs in observaciones)
+                        {
+                            mensaje += " * " + Obs.Code + " : " + Obs.Msg + Environment.NewLine;
+                        }
+                    }
+
+                    //Obtengo los errores y los muestro si los hubiese
+                    var Errors = response.Errors;
+                    if (Errors != null)
+                    {
+                        foreach (var Error in Errors)
+                        {
+                            mensaje += " * " + Error.Code + " : " + Error.Msg + Environment.NewLine;
+                        }
+                    }
+
+
+                    string CB = "20107618725" + String.Format("{0:00}", factura.tipocomprobante.codigo_afip) +
+                        String.Format("{0:0000}", 3) + CAE + FchVencimiento;
+
+                    factura.cae = CAE;
+                    factura.fecha_vencimiento_cae = fechavencimientocae;
+                    factura.codigo_barras = CB;
+                    factura.estado_afip = resultado;
+                    factura.numero = String.Format("{0:00000000}", numero_comp);
+                    factura.estado = "A";
+
+                    int resultado_update = Facturas.UpdateComprobanteAfip(factura);
+                    if (resultado_update > 0)
+                    {
+                        MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GetFacturasAutorizar();
+                    }
+
+
                 }
-
-
-                MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                else
+                {
+                    MessageBox.Show("El Comprobante seleccionado ya se encuentra autorizado por AFIP.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch(Exception e)
             {
                 MessageBox.Show("Error : " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmFacturasAutorizar_Activated(object sender, EventArgs e)
+        {
+            GetFacturasAutorizar();
         }
     }
 }
