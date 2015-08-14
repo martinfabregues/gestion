@@ -70,5 +70,35 @@ namespace Gestion.Negocio
                 throw e;
             }
         }
+
+
+        public static int UpdateComprobanteAfip(Factura factura)
+        {
+            try
+            {
+                IFacturaRepository _repository = new FacturaRepository();
+                return _repository.UpdateComprobanteAfip(factura);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public static Factura FindById(int id)
+        {
+            try
+            {
+                IFacturaRepository _repository = new FacturaRepository();
+                return _repository.FindById(id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
     }
 }

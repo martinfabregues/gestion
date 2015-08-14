@@ -15,7 +15,7 @@ namespace Gestion.Datos.Repositories
 {
     public interface IFacturaAlicuotaRepository : IRepository<FacturaAlicuota>
     {
-
+        IEnumerable<FacturaAlicuota> FindAllByIdFactura(int id);
     }
 
     public class FacturaAlicuotaRepository : IFacturaAlicuotaRepository
@@ -75,6 +75,24 @@ namespace Gestion.Datos.Repositories
         public FacturaAlicuota FindById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<FacturaAlicuota> FindAllByIdFactura(int id)
+        {
+            string query = "SELECT * FROM FACTURASALICUOTAS " +
+                "WHERE FACTURA_ID = @factura_id";
+
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Query<FacturaAlicuota>(query, new { factura_id = id });
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

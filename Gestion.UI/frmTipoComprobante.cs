@@ -70,7 +70,7 @@ namespace Gestion.UI
             {
                 TipoComprobante tipo_comprobante = new TipoComprobante();
                 tipo_comprobante.activo = Convert.ToInt32(ckbActivo.Checked);
-                tipo_comprobante.codigo_afip = txtCodigoAfip.Text;
+                tipo_comprobante.codigo_afip = Convert.ToInt32(txtCodigoAfip.Text);
                 tipo_comprobante.tipo_comprobante = txtTipoComprobante.Text;
 
                 int resultado = TiposComprobante.Add(tipo_comprobante);

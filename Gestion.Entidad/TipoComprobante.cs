@@ -10,7 +10,7 @@ namespace Gestion.Entidad
     {
         public int id { get; set; }
         public string tipo_comprobante { get;set; }
-        public string codigo_afip { get; set; }
+        public int codigo_afip { get; set; }
         public int activo { get; set; }
     }
 }

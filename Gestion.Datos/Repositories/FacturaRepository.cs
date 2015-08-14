@@ -15,7 +15,7 @@ namespace Gestion.Datos.Repositories
 {
     public interface IFacturaRepository : IRepository<Factura>
     {
-
+        int UpdateComprobanteAfip(Factura factura);
     }
 
     public class FacturaRepository : IFacturaRepository
@@ -118,7 +118,46 @@ namespace Gestion.Datos.Repositories
 
         public Factura FindById(int id)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM FACTURAS " + 
+                "WHERE ID = @id";
+
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Query<Factura>(query, new { id = id }).SingleOrDefault();
+
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public int UpdateComprobanteAfip(Factura factura)
+        {
+            string query = "UPDATE FACTURAS SET NUMERO = @numero, CAE = @cae, " + 
+                "FECHA_VENCIMIENTO_CAE, @fechavencimientocae, CODIGO_BARRAS = @codigobarras, " + 
+                "ESTADO_AFIP = @estadoafip WHERE ID = @id";
+
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Execute(query, new { 
+                        numero = factura.numero, 
+                        cae = factura.cae, 
+                        fechavencimientocae = factura.fecha_vencimiento_cae, 
+                        codigobarras = factura.codigo_barras, 
+                        estadoafip = factura.estado_afip });
+
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

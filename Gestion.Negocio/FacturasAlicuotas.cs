@@ -25,5 +25,19 @@ namespace Gestion.Negocio
         }
 
 
+        public static IEnumerable<FacturaAlicuota> FindAllByIdFactura(int id)
+        {
+            try
+            {
+                IFacturaAlicuotaRepository _repository = new FacturaAlicuotaRepository();
+                return _repository.FindAllByIdFactura(id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
     }
 }
