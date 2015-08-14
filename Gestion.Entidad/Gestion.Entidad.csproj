@@ -45,6 +45,7 @@
     <Compile Include="CondicionIva.cs" />
     <Compile Include="CondicionVenta.cs" />
     <Compile Include="Factura.cs" />
+    <Compile Include="FacturaAlicuota.cs" />
     <Compile Include="Localidad.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Producto.cs" />
