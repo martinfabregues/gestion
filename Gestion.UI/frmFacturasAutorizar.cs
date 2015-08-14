@@ -90,26 +90,38 @@ namespace Gestion.UI
                 string CAE = response.FeDetResp[0].CAE;
                 string FchVencimiento = response.FeDetResp[0].CAEFchVto;
                 DateTime fechavencimientocae = DateTime.ParseExact(FchVencimiento, "yyyyMMdd", null);
+                
+                long numero_comp = response.FeDetResp[0].CbteDesde;
+                int ptovta = response.FeCabResp.PtoVta;
+
+                string mensaje = string.Empty;
 
                 //Le doy formato al resultado
                 if (resultado == "A")
                 {
-                    txtResultado.Text = "Autorizado" + " - CAE : " + CAE + " - Vencimiento : " + fechavencimientocae + Environment.NewLine;
-                    txtResultado.ForeColor = Color.Green;
+                    mensaje += "Comprobante Autorizado" + Environment.NewLine + Environment.NewLine + 
+                        "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +  
+                        Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() + 
+                        Environment.NewLine + Environment.NewLine;
+                   
                 }
 
                 if (resultado == "R")
                 {
-                    txtResultado.Text = "Rechazado" + Environment.NewLine;
-                    txtResultado.ForeColor = Color.Red;
+                    mensaje += "Comprobante Rechazado" + Environment.NewLine + Environment.NewLine;
+                   
                 }
 
                 if (resultado == "P")
                 {
-                    txtResultado.Text = "Parcial" + " - CAE: " + CAE + " - Vencimiento : " + fechavencimientocae + Environment.NewLine;
-                    txtResultado.ForeColor = Color.Green;
+                    mensaje += "Comprobante Autorizado Parcial" + Environment.NewLine + Environment.NewLine +
+                        "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +
+                        Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() +
+                        Environment.NewLine + Environment.NewLine;
+                    
                 }
 
+                
 
                 //Obtengo las observaciones y las muestro en el textbox
                 var observaciones = response.FeDetResp[0].Observaciones;
@@ -117,8 +129,8 @@ namespace Gestion.UI
                 if (observaciones != null)
                 {
                     foreach (var Obs in observaciones)
-                    {
-                        txtResultado.Text += Obs.Code + " : " + Obs.Msg + Environment.NewLine;
+                    {                        
+                        mensaje += " * " + Obs.Code + " : " + Obs.Msg + Environment.NewLine;
                     }
                 }
 
@@ -128,12 +140,12 @@ namespace Gestion.UI
                 {
                     foreach (var Error in Errors)
                     {
-                        txtResultado.Text += Error.Code + " : " + Error.Msg + Environment.NewLine;
+                        mensaje += " * " + Error.Code + " : " + Error.Msg + Environment.NewLine;
                     }
                 }
 
-    
 
+                MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch(Exception e)

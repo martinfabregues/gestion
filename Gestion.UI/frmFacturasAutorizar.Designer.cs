@@ -41,7 +41,6 @@
             this.vencimiento_cae = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorizar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtResultado = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +68,7 @@
             this.dgvFacturas.Name = "dgvFacturas";
             this.dgvFacturas.ReadOnly = true;
             this.dgvFacturas.RowHeadersVisible = false;
-            this.dgvFacturas.Size = new System.Drawing.Size(1024, 428);
+            this.dgvFacturas.Size = new System.Drawing.Size(1024, 509);
             this.dgvFacturas.TabIndex = 0;
             this.dgvFacturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacturas_CellClick);
             // 
@@ -148,17 +147,6 @@
             this.autorizar.Text = "Autorizar AFIP";
             this.autorizar.UseColumnTextForButtonValue = true;
             // 
-            // txtResultado
-            // 
-            this.txtResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResultado.Location = new System.Drawing.Point(9, 510);
-            this.txtResultado.Multiline = true;
-            this.txtResultado.Name = "txtResultado";
-            this.txtResultado.ReadOnly = true;
-            this.txtResultado.Size = new System.Drawing.Size(1024, 75);
-            this.txtResultado.TabIndex = 1;
-            this.txtResultado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // groupBox1
             // 
             this.groupBox1.Location = new System.Drawing.Point(9, 13);
@@ -174,7 +162,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 597);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtResultado);
             this.Controls.Add(this.dgvFacturas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -184,14 +171,12 @@
             this.Load += new System.EventHandler(this.frmFacturasAutorizar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dgvFacturas;
-        private System.Windows.Forms.TextBox txtResultado;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
