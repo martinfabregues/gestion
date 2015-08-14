@@ -25,6 +25,8 @@ namespace Gestion.Entidad
         public DateTime fecha_vencimiento_cae { get; set; }
         public string codigo_barras { get; set; }
         public string estado_afip { get; set; }
+        public string observacionesafip { get; set; }
+        public string erroresafip { get; set; }
         public string estado { get; set; }
         public IList<FacturaAlicuota> alicuotas { get; set;} 
 

@@ -124,6 +124,7 @@ namespace Gestion.UI
 
                     }
 
+                    string obsafip = string.Empty;
                     //Obtengo las observaciones y las muestro en el textbox
                     var observaciones = response.FeDetResp[0].Observaciones;
 
@@ -131,17 +132,18 @@ namespace Gestion.UI
                     {
                         foreach (var Obs in observaciones)
                         {
-                            mensaje += " * " + Obs.Code + " : " + Obs.Msg + Environment.NewLine;
+                            obsafip += " * " + Obs.Code + " : " + Obs.Msg + Environment.NewLine;
                         }
                     }
 
+                    string erroresafip = string.Empty;
                     //Obtengo los errores y los muestro si los hubiese
                     var Errors = response.Errors;
                     if (Errors != null)
                     {
                         foreach (var Error in Errors)
                         {
-                            mensaje += " * " + Error.Code + " : " + Error.Msg + Environment.NewLine;
+                            erroresafip += " * " + Error.Code + " : " + Error.Msg + Environment.NewLine;
                         }
                     }
 
@@ -155,6 +157,8 @@ namespace Gestion.UI
                     factura.estado_afip = resultado;
                     factura.numero = String.Format("{0:00000000}", numero_comp);
                     factura.estado = "A";
+                    factura.observacionesafip = obsafip;
+                    factura.erroresafip = erroresafip;
 
                     int resultado_update = Facturas.UpdateComprobanteAfip(factura);
                     if (resultado_update > 0)

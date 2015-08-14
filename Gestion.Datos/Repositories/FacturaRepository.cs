@@ -68,9 +68,9 @@ namespace Gestion.Datos.Repositories
         {
             string query = "INSERT INTO FACTURAS (FECHA, NUMERO, TIPOCOMPROBANTE_ID, PUNTOVENTA_ID, CONDICIONVENTA_ID, CLIENTE_ID, CONCEPTO, SUBTOTAL, " +
                             "IVA, OTROS_TRIBUTOS, TOTAL, OBSERVACIONES, CAE, FECHA_VENCIMIENTO_CAE, CODIGO_BARRAS, " +
-                            "ESTADO_AFIP, ESTADO) VALUES (@fecha, @numero, @tipocomprobante_id, @puntoventa_id, @condicionventa_id, @cliente_id, @concepto, @subtotal, " + 
+                            "ESTADO_AFIP, OBSERVACIONESAFIP, ERRORESAFIP, ESTADO) VALUES (@fecha, @numero, @tipocomprobante_id, @puntoventa_id, @condicionventa_id, @cliente_id, @concepto, @subtotal, " + 
                             "@iva, @otros_tributos, @total, @observaciones, @cae, @fechavencimientocae, @codigobarras, " + 
-                            "@estado_afip, @estado);" +
+                            "@estado_afip, @observacionesafip, @erroresafip, @estado);" +
                             "SELECT SCOPE_IDENTITY();";
             try
             {
@@ -94,6 +94,8 @@ namespace Gestion.Datos.Repositories
                         fechavencimientocae = entity.fecha_vencimiento_cae,
                         codigobarras = entity.codigo_barras,
                         estado_afip = entity.estado_afip,
+                        observacionesafip = entity.observacionesafip,
+                        erroresafip = entity.erroresafip,
                         estado = entity.estado
 
                     }).Single();
@@ -139,7 +141,8 @@ namespace Gestion.Datos.Repositories
         {
             string query = "UPDATE FACTURAS SET NUMERO = @numero, CAE = @cae, " + 
                 "FECHA_VENCIMIENTO_CAE = @fechavencimientocae, CODIGO_BARRAS = @codigobarras, " + 
-                "ESTADO_AFIP = @estadoafip, ESTADO = @estado WHERE ID = @id";
+                "ESTADO_AFIP = @estadoafip, OBSERVACIONESAFIP = @observacionesafip, " +
+                "ERRORESAFIP = @erroresafip, ESTADO = @estado WHERE ID = @id";
 
             try
             {
@@ -151,6 +154,8 @@ namespace Gestion.Datos.Repositories
                         fechavencimientocae = factura.fecha_vencimiento_cae, 
                         codigobarras = factura.codigo_barras, 
                         estadoafip = factura.estado_afip,
+                        observacionesafip = factura.observacionesafip,
+                        erroresafip = factura.erroresafip,
                         estado = factura.estado,
                         id = factura.id
                     });
