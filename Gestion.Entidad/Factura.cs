@@ -26,5 +26,9 @@ namespace Gestion.Entidad
         public string codigo_barras { get; set; }
         public string estado_afip { get; set; }
         public string estado { get; set; }
+
+        public virtual TipoComprobante tipocomprobante { get; set; }        
+        public virtual CondicionVenta condicionventa { get; set; }
+        public virtual Cliente cliente { get; set; }
     }
 }

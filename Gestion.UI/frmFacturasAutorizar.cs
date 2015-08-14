@@ -20,18 +20,23 @@ namespace Gestion.UI
 
         private void frmFacturasAutorizar_Load(object sender, EventArgs e)
         {
-            GetDatos();
+            GetFacturasAutorizar();
         }
 
-        private void GetDatos()
+        private void GetFacturasAutorizar()
         {
-            var query = from row in Facturas.FindAll()
+            var query = from row in Facturas.FindAll().OrderBy(x => x.fecha).OrderBy(x => x.puntoventa_id)
                         select row;
 
+            dgvFacturas.Rows.Clear();
             foreach(var row in query)
             {
-                dgvFacturas.Rows.Add(row.id, row.fecha, row.numero, row.tipocomprobante_id, row.puntoventa_id, row.cliente_id, row.subtotal, row.total, row.cae, row.fecha_vencimiento_cae, row.estado);
+                dgvFacturas.Rows.Add(row.id, row.fecha.ToShortDateString(), row.numero, row.tipocomprobante.tipo_comprobante, 
+                    row.puntoventa_id, row.cliente.apellido, row.subtotal, row.total, row.cae,
+                    row.fecha_vencimiento_cae.ToShortDateString(), row.estado);
             }
+
+            dgvFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
     }

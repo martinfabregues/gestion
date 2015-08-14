@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Alicuota.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="Cliente.cs" />
     <Compile Include="CondicionIva.cs" />
     <Compile Include="CondicionVenta.cs" />
     <Compile Include="Factura.cs" />

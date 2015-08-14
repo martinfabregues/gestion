@@ -38,12 +38,23 @@ namespace Gestion.Datos.Repositories
 
         public IEnumerable<Factura> FindAll()
         {
-            string query = "SELECT * FROM FACTURAS";
+            string query = "SELECT * FROM FACTURAS F " +
+                "INNER JOIN TIPOSCOMPROBANTE TC ON TC.ID = F.TIPOCOMPROBANTE_ID " +
+                "INNER JOIN CONDICIONESVENTA CV ON CV.ID = F.CONDICIONVENTA_ID " +
+                "INNER JOIN CLIENTES C ON C.ID = F.CLIENTE_ID ";
+
             try
             {
                 using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
                 {
-                    return _db.Query<Factura>(query);
+                    return _db.Query<Factura, TipoComprobante, CondicionVenta, Cliente, Factura>(query, 
+                        (factura, tipocomprobante, condicionventa, cliente) => 
+                        {
+                            factura.tipocomprobante = tipocomprobante;
+                            factura.condicionventa = condicionventa;
+                            factura.cliente = cliente;
+                            return factura;
+                        }, splitOn:"id");
                    
                 }
             }
