@@ -27,6 +27,8 @@ namespace Gestion.Negocio
                     {
                         foreach(var row in entity.alicuotas)
                         {
+                            row.factura_id = factura_id;
+
                             int res = FacturasAlicuotas.Add(row);
                             if(res == 0)
                             {

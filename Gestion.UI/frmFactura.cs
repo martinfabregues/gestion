@@ -346,6 +346,21 @@ namespace Gestion.UI
                 factura.total = Convert.ToDouble(txtTotal.Text);
                 factura.fecha_vencimiento_cae = dtpFecha.Value;
 
+                //cargo las alicuotas
+                IList<FacturaAlicuota> alicuotas = new List<FacturaAlicuota>();
+                foreach(DataGridViewRow row in dgvAlicuotas.Rows)
+                {
+                    FacturaAlicuota alicuota = new FacturaAlicuota();
+                    alicuota.alicuota_id = Convert.ToInt32(row.Cells[0].Value);
+                    alicuota.base_imponible = Convert.ToDouble(row.Cells[2].Value);
+                    alicuota.importe = Convert.ToDouble(row.Cells[3].Value);
+
+                    alicuotas.Add(alicuota);
+                }
+
+                factura.alicuotas = alicuotas;
+
+
                 int resultado = Facturas.Add(factura);
                 if(resultado > 0)
                 {
