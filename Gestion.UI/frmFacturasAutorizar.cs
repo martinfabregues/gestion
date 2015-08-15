@@ -93,6 +93,8 @@ namespace Gestion.UI
                         }
 
                         MessageBox.Show(mensaje, "Autorización de Comprobantes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        GetFacturasAutorizar();
                     }
                 }
                 else

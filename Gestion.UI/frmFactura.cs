@@ -332,7 +332,7 @@ namespace Gestion.UI
             try
               {
                 Factura factura = new Factura();
-                factura.cliente_id = 1;
+                factura.cliente_id = Convert.ToInt32(txtCodigoCliente.Text);
                 factura.concepto = GetConceptoFactura();
                 factura.condicionventa_id = Convert.ToInt32(cboCondicionVenta.SelectedValue);
                 factura.estado = "P";
@@ -345,10 +345,7 @@ namespace Gestion.UI
                 factura.tipocomprobante_id = Convert.ToInt32(cboTipoComprobante.SelectedValue);
                 factura.total = Convert.ToDouble(txtTotal.Text);
                 factura.fecha_vencimiento_cae = dtpFecha.Value;
-                factura.cliente = Clientes.FindById(Convert.ToInt32(txtCodigoCliente.Text));
-                factura.cliente.tipodocumento = TiposDocumento.FindById(factura.cliente.tipodocumento_id);
-
-
+               
                 //cargo las alicuotas
                 IList<FacturaAlicuota> alicuotas = new List<FacturaAlicuota>();
                 foreach(DataGridViewRow row in dgvAlicuotas.Rows)
@@ -436,16 +433,7 @@ namespace Gestion.UI
 
         private void cboTipoComprobante_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            TipoComprobante tipoComprobante = TiposComprobante.FindById(Convert.ToInt32(cboTipoComprobante.SelectedValue));
-            if(tipoComprobante.codigo_afip == 1 || tipoComprobante.codigo_afip == 2 || 
-                tipoComprobante.codigo_afip == 3)
-            {
-                dgvDetalle.Columns[7].Visible = true;
-            }
-            else
-            {
-                dgvDetalle.Columns[7].Visible = false;
-            }
+            
         }
 
 
