@@ -59,6 +59,14 @@
             this.btnNuevaFila = new System.Windows.Forms.ToolStripButton();
             this.btnQuitarFila = new System.Windows.Forms.ToolStripButton();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preciounitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboAlicuota = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvAlicuotas = new System.Windows.Forms.DataGridView();
             this.id_alicuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,14 +88,6 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAgregarFila = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preciounitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bonificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboAlicuota = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -119,6 +119,7 @@
             this.cboTipoComprobante.Name = "cboTipoComprobante";
             this.cboTipoComprobante.Size = new System.Drawing.Size(166, 21);
             this.cboTipoComprobante.TabIndex = 1;
+            this.cboTipoComprobante.SelectionChangeCommitted += new System.EventHandler(this.cboTipoComprobante_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -185,6 +186,7 @@
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.Size = new System.Drawing.Size(75, 20);
             this.txtCodigoCliente.TabIndex = 10;
+            this.txtCodigoCliente.TextChanged += new System.EventHandler(this.txtCodigoCliente_TextChanged);
             // 
             // label5
             // 
@@ -409,6 +411,49 @@
             this.dgvDetalle.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalle_CellValueChanged);
             this.dgvDetalle.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDetalle_EditingControlShowing);
             // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.Name = "descripcion";
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.Name = "cantidad";
+            // 
+            // preciounitario
+            // 
+            this.preciounitario.HeaderText = "Precio Unit.";
+            this.preciounitario.Name = "preciounitario";
+            // 
+            // bonificacion
+            // 
+            this.bonificacion.HeaderText = "% Bonif.";
+            this.bonificacion.Name = "bonificacion";
+            // 
+            // subtotal
+            // 
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.Name = "subtotal";
+            // 
+            // cboAlicuota
+            // 
+            this.cboAlicuota.HeaderText = "Alícuota";
+            this.cboAlicuota.Name = "cboAlicuota";
+            this.cboAlicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cboAlicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvAlicuotas);
@@ -443,22 +488,26 @@
             // 
             this.id_alicuota.HeaderText = "Id";
             this.id_alicuota.Name = "id_alicuota";
+            this.id_alicuota.ReadOnly = true;
             this.id_alicuota.Visible = false;
             // 
             // alicuota
             // 
             this.alicuota.HeaderText = "Alícuota";
             this.alicuota.Name = "alicuota";
+            this.alicuota.ReadOnly = true;
             // 
             // baseimponible
             // 
             this.baseimponible.HeaderText = "Base Imp.";
             this.baseimponible.Name = "baseimponible";
+            this.baseimponible.ReadOnly = true;
             // 
             // importe_iva
             // 
             this.importe_iva.HeaderText = "Imp. IVA";
             this.importe_iva.Name = "importe_iva";
+            this.importe_iva.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -598,49 +647,6 @@
             this.btnAgregarFila.TabIndex = 52;
             this.btnAgregarFila.Text = "&Agregar Fila";
             this.btnAgregarFila.UseVisualStyleBackColor = true;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // codigo
-            // 
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.Name = "cantidad";
-            // 
-            // preciounitario
-            // 
-            this.preciounitario.HeaderText = "Precio Unit.";
-            this.preciounitario.Name = "preciounitario";
-            // 
-            // bonificacion
-            // 
-            this.bonificacion.HeaderText = "% Bonif.";
-            this.bonificacion.Name = "bonificacion";
-            // 
-            // subtotal
-            // 
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.Name = "subtotal";
-            // 
-            // cboAlicuota
-            // 
-            this.cboAlicuota.HeaderText = "Alícuota";
-            this.cboAlicuota.Name = "cboAlicuota";
-            this.cboAlicuota.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cboAlicuota.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmFactura
             // 

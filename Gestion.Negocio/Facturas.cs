@@ -110,9 +110,10 @@ namespace Gestion.Negocio
                 }
 
                 var response = Fe.FECAESolicitar(1, 3, factura.tipocomprobante.codigo_afip, 
-                    factura.concepto, 80, 20077998846, proximocomprobante, proximocomprobante, 
-                    factura.fecha.ToString("yyyyMMdd"), factura.total, 0, factura.subtotal, 0, 
-                    factura.otros_tributos, factura.iva, "", "", "", "PES", 1, null, null, ivas, null);
+                    factura.concepto, factura.cliente.tipodocumento.codigo_afip, factura.cliente.documento, 
+                    proximocomprobante, proximocomprobante, factura.fecha.ToString("yyyyMMdd"), factura.total, 
+                    0, factura.subtotal, 0, factura.otros_tributos, factura.iva, "", "", "", "PES", 1, null, null, 
+                    ivas, null);
 
                 string resultado = response.FeCabResp.Resultado;
 

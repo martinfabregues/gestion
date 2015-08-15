@@ -215,7 +215,7 @@ namespace Gestion.UI
 
                 double subtotal = (cantidad * (precio_unitario * bonificacion));
 
-                dgvDetalle.Rows[e.RowIndex].Cells[3].Value = Math.Round(Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[6].Value), 2);
+                dgvDetalle.Rows[e.RowIndex].Cells[3].Value = Math.Round(Convert.ToDouble(dgvDetalle.Rows[e.RowIndex].Cells[3].Value), 2);
                 dgvDetalle.Rows[e.RowIndex].Cells[6].Value = subtotal;
             }
 
@@ -345,6 +345,9 @@ namespace Gestion.UI
                 factura.tipocomprobante_id = Convert.ToInt32(cboTipoComprobante.SelectedValue);
                 factura.total = Convert.ToDouble(txtTotal.Text);
                 factura.fecha_vencimiento_cae = dtpFecha.Value;
+                factura.cliente = Clientes.FindById(Convert.ToInt32(txtCodigoCliente.Text));
+                factura.cliente.tipodocumento = TiposDocumento.FindById(factura.cliente.tipodocumento_id);
+
 
                 //cargo las alicuotas
                 IList<FacturaAlicuota> alicuotas = new List<FacturaAlicuota>();
@@ -430,6 +433,46 @@ namespace Gestion.UI
         {
             RegistrarFactura();
         }
+
+        private void cboTipoComprobante_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            TipoComprobante tipoComprobante = TiposComprobante.FindById(Convert.ToInt32(cboTipoComprobante.SelectedValue));
+            if(tipoComprobante.codigo_afip == 1 || tipoComprobante.codigo_afip == 2 || 
+                tipoComprobante.codigo_afip == 3)
+            {
+                dgvDetalle.Columns[7].Visible = true;
+            }
+            else
+            {
+                dgvDetalle.Columns[7].Visible = false;
+            }
+        }
+
+
+        private void FindClienteById(int cliente_id)
+        {
+            try
+            {
+                Cliente cliente = Clientes.FindById(cliente_id);
+                txtNombre.Text = cliente.apellido;
+                txtDocumento.Text = cliente.documento.ToString();
+                
+
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Error : " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtCodigoCliente_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtCodigoCliente.Text))
+            {
+                FindClienteById(Convert.ToInt32(txtCodigoCliente.Text));
+            }
+        }
+
 
     }
 }

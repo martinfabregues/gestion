@@ -11,5 +11,10 @@ namespace Gestion.Entidad
         public int id { get; set; }
         public string apellido { get; set; }
         public string nombres { get; set; }
+        public int tipodocumento_id { get; set; }
+        public long documento { get; set; }
+
+
+        public virtual TipoDocumento tipodocumento { get; set; }
     }
 }

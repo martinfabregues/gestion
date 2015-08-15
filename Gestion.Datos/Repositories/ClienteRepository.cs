@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
+using DapperExtensions;
 
 namespace Gestion.Datos.Repositories
 {
@@ -56,7 +58,20 @@ namespace Gestion.Datos.Repositories
 
         public Cliente FindById(int id)
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM CLIENTES " +
+                "WHERE ID = @id";
+
+            try
+            {
+                using (IDbConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DB"].ToString()))
+                {
+                    return _db.Query<Cliente>(query, new { id = id}).SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Alicuotas.cs" />
     <Compile Include="Categorias.cs" />
+    <Compile Include="Clientes.cs" />
     <Compile Include="CondicionesIva.cs" />
     <Compile Include="CondicionesVenta.cs" />
     <Compile Include="Facturas.cs" />

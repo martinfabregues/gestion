@@ -58,6 +58,9 @@ namespace Gestion.UI
             {
                 Factura factura = new Factura();
                 factura = Facturas.FindById(factura_id);
+                factura.cliente = Clientes.FindById(factura.cliente_id);
+                factura.cliente.tipodocumento = TiposDocumento.FindById(factura.cliente.tipodocumento_id);
+
 
                 if (factura.estado_afip != "A" || string.IsNullOrEmpty(factura.estado_afip))
                 {

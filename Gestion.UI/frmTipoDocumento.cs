@@ -74,7 +74,7 @@ namespace Gestion.UI
             {
                 TipoDocumento tipo_documento = new TipoDocumento();
                 tipo_documento.activo = Convert.ToInt32(ckbActivo.Checked);
-                tipo_documento.codigo_afip = txtCodigoAfip.Text;
+                tipo_documento.codigo_afip = Convert.ToInt32(txtCodigoAfip.Text);
                 tipo_documento.tipo_documento = txtTipoDocumento.Text;
 
                 int resultado = TiposDocumento.Add(tipo_documento);
