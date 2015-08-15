@@ -1,6 +1,4 @@
-﻿using Afip.FE;
-using Afip.FE.Wsfe;
-using Gestion.Entidad;
+﻿using Gestion.Entidad;
 using Gestion.Negocio;
 using System;
 using System.Collections.Generic;
@@ -16,7 +14,7 @@ namespace Gestion.UI
 {
     public partial class frmFacturasAutorizar : Form
     {
-        private FacturaElectronica Fe = new FacturaElectronica("C:\\Certificados\\bonechi\\Desarrollo.p12", 20107618725, "HOMO");
+        
         
         public frmFacturasAutorizar()
         {
@@ -61,120 +59,45 @@ namespace Gestion.UI
                 Factura factura = new Factura();
                 factura = Facturas.FindById(factura_id);
 
-                if (factura.estado.Trim() != "A")
+                if (factura.estado_afip != "A" || string.IsNullOrEmpty(factura.estado_afip))
                 {
-                    factura.tipocomprobante = TiposComprobante.FindById(factura.tipocomprobante_id);
-
-                    var respuesta = Fe.FECompUltimoAutorizado(3, factura.tipocomprobante.codigo_afip);
-                    int ultcomprobante = respuesta.CbteNro;
-
-                    factura.alicuotas = FacturasAlicuotas.FindAllByIdFactura(factura_id).ToList();
-
-                    int i = 0;
-                    AlicIva[] ivas = new AlicIva[factura.alicuotas.Count];
-                    foreach (var row in factura.alicuotas)
-                    {
-                        Alicuota alicuota = Alicuotas.FindById(row.alicuota_id);
-
-                        Afip.FE.Wsfe.AlicIva alic = new Afip.FE.Wsfe.AlicIva();
-                        alic.Id = alicuota.codigo_afip;
-                        alic.BaseImp = row.base_imponible;
-                        alic.Importe = row.importe;
-                        ivas[i] = alic;
-
-                        i += 1;
-                    }
-
-                    var response = Fe.FECAESolicitar(1, 3, factura.tipocomprobante.codigo_afip, factura.concepto, 80, 20077998846, ultcomprobante + 1, ultcomprobante + 1, factura.fecha.ToString("yyyyMMdd"), factura.total, 0, factura.subtotal, 0, factura.otros_tributos, factura.iva, "", "", "", "PES", 1, null, null, ivas, null);
-
-                    string resultado = response.FeCabResp.Resultado;
-
-                    //Obtengo el CAE y su vencimiento
-                    string CAE = response.FeDetResp[0].CAE;
-                    string FchVencimiento = response.FeDetResp[0].CAEFchVto;
-                    DateTime fechavencimientocae = DateTime.ParseExact(FchVencimiento, "yyyyMMdd", null);
-
-                    long numero_comp = response.FeDetResp[0].CbteDesde;
-                    int ptovta = response.FeCabResp.PtoVta;
-
-                    string mensaje = string.Empty;
-
-                    //Le doy formato al resultado
-                    if (resultado == "A")
-                    {
-                        mensaje += "Comprobante Autorizado" + Environment.NewLine + Environment.NewLine +
-                            "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +
-                            Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() +
-                            Environment.NewLine + Environment.NewLine;
-
-                    }
-
-                    if (resultado == "R")
-                    {
-                        mensaje += "Comprobante Rechazado" + Environment.NewLine + Environment.NewLine;
-
-                    }
-
-                    if (resultado == "P")
-                    {
-                        mensaje += "Comprobante Autorizado Parcial" + Environment.NewLine + Environment.NewLine +
-                            "Nro. Comprobante: " + String.Format("{0:0000}", ptovta) + "-" + String.Format("{0:00000000}", numero_comp) +
-                            Environment.NewLine + "CAE : " + CAE + Environment.NewLine + "Vencimiento : " + fechavencimientocae.ToShortDateString() +
-                            Environment.NewLine + Environment.NewLine;
-
-                    }
-
-                    string obsafip = string.Empty;
-                    //Obtengo las observaciones y las muestro en el textbox
-                    var observaciones = response.FeDetResp[0].Observaciones;
-
-                    if (observaciones != null)
-                    {
-                        foreach (var Obs in observaciones)
-                        {
-                            obsafip += " * " + Obs.Code + " : " + Obs.Msg + Environment.NewLine;
-                        }
-                    }
-
-                    string erroresafip = string.Empty;
-                    //Obtengo los errores y los muestro si los hubiese
-                    var Errors = response.Errors;
-                    if (Errors != null)
-                    {
-                        foreach (var Error in Errors)
-                        {
-                            erroresafip += " * " + Error.Code + " : " + Error.Msg + Environment.NewLine;
-                        }
-                    }
-
-
-                    string CB = "20107618725" + String.Format("{0:00}", factura.tipocomprobante.codigo_afip) +
-                        String.Format("{0:0000}", 3) + CAE + FchVencimiento;
-
-                    factura.cae = CAE;
-                    factura.fecha_vencimiento_cae = fechavencimientocae;
-                    factura.codigo_barras = CB;
-                    factura.estado_afip = resultado;
-                    factura.numero = String.Format("{0:00000000}", numero_comp);
-                    factura.estado = "A";
-                    factura.observacionesafip = obsafip;
-                    factura.erroresafip = erroresafip;
-
                     int resultado_update = Facturas.UpdateComprobanteAfip(factura);
                     if (resultado_update > 0)
                     {
-                        MessageBox.Show(mensaje, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        GetFacturasAutorizar();
+                        factura = Facturas.FindById(factura_id);
+
+                        string mensaje = string.Empty;
+
+                        if (factura.estado_afip.Trim() == "A")
+                        {
+                            mensaje += "Comprobante Autorizado" + Environment.NewLine + Environment.NewLine +
+                          "Nro. Comprobante: " + String.Format("{0:0000}", factura.puntoventa_id) + "-" + String.Format("{0:00000000}", factura.numero) +
+                          Environment.NewLine + "CAE : " + factura.cae + Environment.NewLine + "Vencimiento : " + factura.fecha_vencimiento_cae.ToShortDateString() +
+                          Environment.NewLine + Environment.NewLine;
+                        }
+
+                        if (factura.estado_afip.Trim() == "R")
+                        {
+                            mensaje += "Comprobante Rechazado" + Environment.NewLine + Environment.NewLine;
+                        }
+
+                        if (factura.estado_afip.Trim() == "P")
+                        {
+                            mensaje += "Comprobante Autorizado Parcial" + Environment.NewLine + Environment.NewLine +
+                            "Nro. Comprobante: " + String.Format("{0:0000}", factura.puntoventa_id) + "-" + String.Format("{0:00000000}", factura.numero) +
+                            Environment.NewLine + "CAE : " + factura.cae + Environment.NewLine + "Vencimiento : " + factura.fecha_vencimiento_cae.ToShortDateString() +
+                            Environment.NewLine + Environment.NewLine;
+                        }
+
+                        MessageBox.Show(mensaje, "Autorización de Comprobantes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-
                 }
                 else
                 {
-                    MessageBox.Show("El Comprobante seleccionado ya se encuentra autorizado por AFIP.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El Comprobante Seleccionado ya se encuentra autorizado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Error : " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
