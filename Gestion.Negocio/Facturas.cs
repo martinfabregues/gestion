@@ -93,6 +93,10 @@ namespace Gestion.Negocio
                 int proximocomprobante = respuesta.CbteNro + 1;
 
                 factura.alicuotas = FacturasAlicuotas.FindAllByIdFactura(factura.id).ToList();
+              
+                var query = from row in factura.alicuotas
+                            group row by (row.alicuota_id) into g
+                            select g.ToList();
 
                 int i = 0;
                 AlicIva[] ivas = new AlicIva[factura.alicuotas.Count];
