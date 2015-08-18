@@ -94,14 +94,19 @@ namespace Gestion.Negocio
 
                 factura.alicuotas = FacturasAlicuotas.FindAllByIdFactura(factura.id).ToList();
               
-                var query = from row in factura.alicuotas
+                var query = (from row in factura.alicuotas
                             group row by (row.alicuota_id) into g
-                            select g.ToList();
+                            select g).ToList() ;
+
+                var query2 = factura.alicuotas.GroupBy(x => x.alicuota_id)
+                    .Select(item => item.ToList())
+                    .ToList();
 
                 int i = 0;
                 AlicIva[] ivas = new AlicIva[factura.alicuotas.Count];
                 foreach (var row in factura.alicuotas)
                 {
+                    
                     Alicuota alicuota = Alicuotas.FindById(row.alicuota_id);
 
                     Afip.FE.Wsfe.AlicIva alic = new Afip.FE.Wsfe.AlicIva();
